@@ -13,10 +13,10 @@ function findLongestPrefix (array) {
         let firstPrefixLength = firstPrefix.length;
         let secondPrefixLength = secondPrefix.length;
         if(firstPrefixLength > secondPrefixLength) {
-            return firstPrefix;
+            console.log(firstPrefix);
         }
         else{
-            return secondPrefix;
+            console.log(secondPrefix);
         }
        
         
@@ -25,4 +25,4 @@ function findLongestPrefix (array) {
 
 
 
-findLongestPrefix(example);
+findLongestPrefix(arr);

@@ -12,19 +12,11 @@ function findLongestPrefix (array) {
         let secondPrefix = secondItem.split(" ")[0];
         let firstPrefixLength = firstPrefix.length;
         let secondPrefixLength = secondPrefix.length;
-        console.log("firstItem",firstItem);
-        console.log("secondItem",secondItem);
-        console.log("firstPrefix",firstPrefix);
-        console.log("secondPrefix",secondPrefix);
         if(firstPrefixLength > secondPrefixLength) {
-            console.log(firstPrefix);
-            console.log(i);
-        console.log("-----")
+            return firstPrefix;
         }
         else{
-            console.log(secondPrefix);
-            console.log(i);
-        console.log("-----")
+            return secondPrefix;
         }
        
         

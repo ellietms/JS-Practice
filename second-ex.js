@@ -12,27 +12,19 @@ let example = [
   "Greetings from the galaxy MACS0647-JD, or what we call home",
 ];
 
-function findLongestWord(array) {
-  let longestWords = [];
-  let wholeWordsOfEachItem;
-  let arrayOfLengths = [];
-  let LongestWordOfEachItem;
-  let indexOfLongestWord;
-  let longestWordLength;
-  for (let i = 0; i < array.length; i++) {
-    wholeWordsOfEachItem = array[i].split(" ");
-    for (let j = 0; j < wholeWordsOfEachItem.length; j++) {
-        arrayOfLengths.push(wholeWordsOfEachItem[j].length);
-        
-      }
-    longestWordLength = Math.max(arrayOfLengths);
-    indexOfLongestWord = arrayOfLengths.indexOf(longestWordLength);
-    LongestWordOfEachItem = wholeWordsOfEachItem[indexOfLongestWord];
-    longestWords.push(LongestWordOfEachItem);
-    console.log("LongestWordOfEachItem",LongestWordOfEachItem)
-    console.log("longestWords",longestWords)
-  }
-  console.log("longestWords2",longestWords)
+let arrayOfLongestWords = [];
+function findLongestWordInString(str){
+  let strArrayOfWords = str.split(" ");
+  let soretedArray = strArrayOfWords.sort((a,b) => b.length - a.length);
+  return soretedArray[0]
 }
 
-findLongestWord(example);
+
+function longestWordInArray(array){
+  for (let i=0;i<array.length;i++){ 
+    arrayOfLongestWords.push(findLongestWordInString(array[i]));
+  }
+  console.log("Results",arrayOfLongestWords.sort((a,b) => b.length - a.length)[0])
+}
+
+longestWordInArray(example)

@@ -6,8 +6,6 @@
 //The common prefix of every string of [“Hello”, “Hi”, “Cheese”] is the empty string,
 //because they don’t all share one prefix 
 
-let arr = ["Hello Ellie", "Hello Daniel",, "I like cheese"];
-let example = ["I am Ellie","heloo","heloo ellie","bye ellie","goodbye","goodnight"]
 
 let prefix = [];
 
@@ -16,32 +14,21 @@ function FindPrefix(str, str2) {
     let lengthStr2 = str2.length;
     str = str.toLowerCase();
     str2 = str2.toLowerCase();
-    if (lengthStr > lengthStr2) {
+    if (lengthStr  > lengthStr2 & lengthStr !== 0 & lengthStr2 !== 0) {
       for (let i = 0;i<lengthStr2;i++) {
         if (str2.substring(0, i + 1).includes(str.substring(0, i + 1))) {
           prefix.push(str2.substring(0, i + 1));
         }
       }
-      if (prefix.length === 1) {
-        console.log("1", prefix[0]);
-      } else if (prefix.length !== 0) {
-        console.log(prefix[prefix.length - 1]);
-      } else {
-        console.log("Empty");
-      }
-    } else {
+    } else  if(lengthStr  < lengthStr2 & lengthStr !== 0 & lengthStr2 !== 0){
       for (let i = 0; i < lengthStr; i++) {
         if (str.substring(0, i + 1).includes(str2.substring(0, i + 1))) {
           prefix.push(str.substring(0, i + 1));
         }
       }
-      if (prefix.length === 1) {
-        console.log("1", prefix[0]);
-      } else if (prefix.length !== 0) {
-        console.log("2", prefix[prefix.length - 1]);
-      } else {
-        console.log("Empty");
-      }
+    }
+    else{
+        console.log(Empty);
     }
   }
 
@@ -53,10 +40,15 @@ function findLongestPrefix (array) {
     let secondItem = array[i+1];
     FindPrefix(firstItem,secondItem);
    }
+   console.log("Result",prefix[prefix.length - 1])
 }
 
 
+let arr = ["Hello Ellie", "Hello Daniel", "I like cheese"];
+let example = ["I am Ellie","heloo","heloo ellie","bye ellie","goodbye","goodnight"]
+
+console.log("====")
 findLongestPrefix(example);
 console.log("====")
 findLongestPrefix(arr);
-
+console.log("====")

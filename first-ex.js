@@ -39,7 +39,7 @@ function findLongestPrefix (array) {
     let secondItem = array[i+1];
     FindPrefix(firstItem,secondItem);
    }
-   console.log("Result",prefix[prefix.length - 1])
+   console.log("Longest Prefix is : ",prefix[prefix.length - 1])
 }
 
 

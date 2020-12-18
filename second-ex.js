@@ -24,7 +24,7 @@ function longestWordInArray(array){
   for (let i=0;i<array.length;i++){ 
     arrayOfLongestWords.push(findLongestWordInString(array[i]));
   }
-  console.log("Results",arrayOfLongestWords.sort((a,b) => b.length - a.length)[0])
+  console.log("Longest Word in the array is : ",arrayOfLongestWords.sort((a,b) => b.length - a.length)[0])
 }
 
 longestWordInArray(example)

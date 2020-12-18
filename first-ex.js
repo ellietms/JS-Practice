@@ -1,6 +1,5 @@
 // Given an array of strings, find the longest common prefix of any two strings. 
 //  you would return "Hello "
-
 //I'm asking you to find the start of the string which is the same for both strings.
 //The common prefix of any two of [“Hello”, “Hi”, “Cheese”] is “H”
 //The common prefix of every string of [“Hello”, “Hi”, “Cheese”] is the empty string,

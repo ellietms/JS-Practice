@@ -46,8 +46,9 @@ function findLongestPrefix (array) {
 let arr = ["Hello Ellie", "Hello Daniel", "I like cheese"];
 let example = ["I am Ellie","heloo","heloo ellie","bye ellie","goodbye","goodnight"]
 
-console.log("====")
-findLongestPrefix(example);
+
 console.log("====")
 findLongestPrefix(arr);
+console.log("====")
+findLongestPrefix(example);
 console.log("====")

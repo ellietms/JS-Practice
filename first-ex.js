@@ -9,59 +9,49 @@
 let arr = ["Hello Ellie", "Hello Daniel",, "I like cheese"];
 let example = ["I am Ellie","heloo","heloo ellie","bye ellie","goodbye","goodnight"]
 
-function findLongestPrefix (array) {
-    let prefix = [];
-   for(let i=0;i< array.length - 1;i++){
-       //["I am Ellie","heloo"
-    let firstItemLength = array[i].length; //10
-    let secondItemLength = array[i+1].length;//5
-    if(firstItemLength > secondItemLength){
-        for(let j = 0 ; j < secondItemLength ; j++){
-            if(array[i+1].toLowerCase().substring(0,j+1).includes(array[i].toLowerCase().substring(0,j+1))){
-                prefix.push(array[i+1].toLowerCase().substring(0,j+1))
-            }
+let prefix = [];
+
+function FindPrefix(str, str2) {
+    let lengthStr = str.length;
+    let lengthStr2 = str2.length;
+    str = str.toLowerCase();
+    str2 = str2.toLowerCase();
+    if (lengthStr > lengthStr2) {
+      for (let i = 0;i<lengthStr2;i++) {
+        if (str2.substring(0, i + 1).includes(str.substring(0, i + 1))) {
+          prefix.push(str2.substring(0, i + 1));
         }
-        if(prefix.length === 1){
-            array = array.splice(i,i+2).splice(0,0,prefix[0]); 
-            console.log("Array1",array);
-            console.log("prefix1",prefix);
+      }
+      if (prefix.length === 1) {
+        console.log("1", prefix[0]);
+      } else if (prefix.length !== 0) {
+        console.log(prefix[prefix.length - 1]);
+      } else {
+        console.log("Empty");
+      }
+    } else {
+      for (let i = 0; i < lengthStr; i++) {
+        if (str.substring(0, i + 1).includes(str2.substring(0, i + 1))) {
+          prefix.push(str.substring(0, i + 1));
         }
-        else if(prefix.length !== 0){
-            array = array.splice(i,i+2).splice(0,0, prefix[prefix.length - 1]);
-            console.log("Array2",array);
-            console.log("prefix2",prefix);
-        }
-        else{
-            prefix = []; 
-            array = array.splice(i,i+1)
-            console.log("Array3",array);
-            console.log("prefix3",prefix);
-        }
+      }
+      if (prefix.length === 1) {
+        console.log("1", prefix[0]);
+      } else if (prefix.length !== 0) {
+        console.log("2", prefix[prefix.length - 1]);
+      } else {
+        console.log("Empty");
+      }
     }
-    else{
-        for(let j = 0 ; j < firstItemLength ; j++){
-            if(array[i].toLowerCase().substring(0,j+1).includes(array[i+1].toLowerCase().substring(0,j+1))){
-                prefix.push(array[i].toLowerCase().substring(0,j+1))
-            }
-        }
-        if(prefix.length === 1){
-            array = array.splice(i,i+2).splice(0,0,prefix[0]); 
-            console.log("2Array1",array);
-            console.log("2prefix1",prefix);
-        }
-        else if(prefix.length !== 0){
-            array = array.splice(i,i+2).splice(0,0,prefix[prefix.length - 1]);
-            console.log("2Array2",array);
-            console.log("2prefix2",prefix);
-        }
-        else{
-            prefix = []; 
-            array = array.splice(i,i+1)
-            console.log("2Array3",array);
-            console.log("2prefix3",prefix);
-        }
-        
-    } 
+  }
+
+
+
+function findLongestPrefix (array) {
+   for(let i=0;i< array.length - 1;i++){
+    let firstItem = array[i];
+    let secondItem = array[i+1];
+    FindPrefix(firstItem,secondItem);
    }
 }
 

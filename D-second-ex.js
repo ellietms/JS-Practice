@@ -12,19 +12,14 @@ let example = [
   "Greetings from the galaxy MACS0647-JD, or what we call home",
 ];
 
-let arrayOfLongestWords = [];
-function findLongestWordInString(str){
-  let strArrayOfWords = str.split(" ");
-  let soretedArray = strArrayOfWords.sort((a,b) => b.length - a.length);
-  return soretedArray[0]
-}
 
 
+// improvement : 
+// You’re currently storing an array of one element per string in the original array.
+//  Can you solve the problem without having to store so many things? 
 function longestWordInArray(array){
-  for (let i=0;i<array.length;i++){ 
-    arrayOfLongestWords.push(findLongestWordInString(array[i]));
-  }
-  console.log("Longest Word in the array is : ",arrayOfLongestWords.sort((a,b) => b.length - a.length)[0])
+  let soretedArray = array.join(" ").split(" ").sort((a,b) => b.length - a.length);
+  console.log("Longest Word in the array is : " , soretedArray[0])
 }
 
 longestWordInArray(example)

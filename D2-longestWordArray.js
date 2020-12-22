@@ -23,8 +23,9 @@ let example = [
 // Next challenge: When you do array.join(" ") you make one really long string,
 //  and then you immediately undo that. Can you work out how to solve the problem without doing that?
 function longestWordInArray(array){
-  let soretedArray = array.join(" ").split(" ").sort((a,b) => b.length - a.length);
-  console.log("Longest Word in the array is : " , soretedArray[0])
+  let longestWords = [];
+  array.map(eachString => longestWords.push(eachString.split(" ").sort((a,b) => b.length - a.length)[0]));
+  console.log("Longest Word in the array is : " , longestWords.sort((a,b) => b.length - a.length)[0])
 }
 
 longestWordInArray(example)

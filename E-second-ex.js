@@ -1,8 +1,15 @@
+// given an integer , show it is the power of 2 or not .
 
-// PROBLEM:- Write a function that does the following:
-// console logs the numbers from 1 to n, where n is the integer the function takes as its parameter
-// logs fizz instead of the number for multiples of 3
-// logs buzz instead of the number for multiples of 5
-// logs fizzbuzz for numbers that are multiples of both 3 and 5
 
-function find
+function isPowerTwo(number){
+    // 218
+    let i = 1;
+    while(i < number){
+        i = i * 2;
+    }
+    console.log("answer is : ",i === number);
+}
+
+isPowerTwo(218);
+isPowerTwo(124);
+isPowerTwo(1024);

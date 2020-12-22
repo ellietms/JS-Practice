@@ -1,54 +1,23 @@
 // Given an array of strings, find the longest common prefix of any two strings. 
-//  you would return "Hello "
+// you would return "Hello "
 //I'm asking you to find the start of the string which is the same for both strings.
 //The common prefix of any two of [“Hello”, “Hi”, “Cheese”] is “H”
 //The common prefix of every string of [“Hello”, “Hi”, “Cheese”] is the empty string,
 //because they don’t all share one prefix 
+//  how can you compare all of the elements to find the longest common prefix of any two?
 
 
-let prefix = [];
-
-function FindPrefix(str, str2) {
-    let lengthStr = str.length;
-    let lengthStr2 = str2.length;
-    str = str.toLowerCase();
-    str2 = str2.toLowerCase();
-    if (lengthStr  > lengthStr2 & lengthStr !== 0 & lengthStr2 !== 0) {
-      for (let i = 0;i<lengthStr2;i++) {
-        if (str2.substring(0, i + 1).includes(str.substring(0, i + 1))) {
-          prefix.push(str2.substring(0, i + 1));
-        }
-      }
-    } else  if(lengthStr  < lengthStr2 & lengthStr !== 0 & lengthStr2 !== 0){
-      for (let i = 0; i < lengthStr; i++) {
-        if (str.substring(0, i + 1).includes(str2.substring(0, i + 1))) {
-          prefix.push(str.substring(0, i + 1));
-        }
-      }
-    }
-    else{
-        console.log(Empty);
-    }
-  }
+// Steps : 
+// try to write your function to print out the pairs
+// after that :  instead of printing out the pairs, print out the common prefix of each pair
+// Then instead of printing, make an array of them
+// And then find the longest one
 
 
+let example = [
+    "Helloo Ellie",
+    "I like cheese",
+    "Helloo Daniel",
+  ];
 
-function findLongestPrefix (array) {
-   for(let i=0;i< array.length - 1;i++){
-    let firstItem = array[i];
-    let secondItem = array[i+1];
-    FindPrefix(firstItem,secondItem);
-   }
-   console.log("Longest Prefix in the array is : ",prefix[prefix.length - 1])
-}
-
-
-let arr = ["Hello Ellie", "Hello Daniel", "I like cheese"];
-let example = ["I am Ellie","heloo","heloo ellie","bye ellie","goodbye","goodnight"]
-
-
-console.log("====")
-findLongestPrefix(arr);
-console.log("====")
-findLongestPrefix(example);
-console.log("====")
+  

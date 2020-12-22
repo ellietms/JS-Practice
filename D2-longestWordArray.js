@@ -12,8 +12,6 @@ let example = [
   "Greetings from the galaxy MACS0647-JD, or what we call home",
 ];
 
-
-
 // improvement : 
 // You’re currently storing an array of one element per string in the original array.
 //  Can you solve the problem without having to store so many things? 
@@ -25,8 +23,16 @@ let example = [
 
 function longestWordInArray(array){
    let longestWords = "";
-  array.map(eachString => eachString.split(" ").sort((a,b) => b.length - a.length)[0].length > longestWords.length ? longestWords = eachString.split(" ").sort((a,b) => b.length - a.length)[0] : longestWords = longestWords);
-  console.log("Longest Word in the array is : " , longestWords)
-}
+   // ask about return 
+  array.map(eachString => {
+  if(eachString.split(" ").sort((a,b) => b.length - a.length)[0].length > longestWords.length){
+    longestWords = eachString.split(" ").sort((a,b) => b.length - a.length)[0];
+  }
+  else{
+    longestWords;
+  }
+}) 
+  console.log("Longest Word is:",longestWords);
+  }
 
-longestWordInArray(example)
+longestWordInArray(example);

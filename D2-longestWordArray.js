@@ -17,6 +17,11 @@ let example = [
 // improvement : 
 // You’re currently storing an array of one element per string in the original array.
 //  Can you solve the problem without having to store so many things? 
+
+
+// improvement 2 : 
+// Next challenge: When you do array.join(" ") you make one really long string,
+//  and then you immediately undo that. Can you work out how to solve the problem without doing that?
 function longestWordInArray(array){
   let soretedArray = array.join(" ").split(" ").sort((a,b) => b.length - a.length);
   console.log("Longest Word in the array is : " , soretedArray[0])

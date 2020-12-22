@@ -27,7 +27,7 @@ function FindPrefix(str, str2) {
       }
     }
     else{
-        console.log(Empty);
+        console.log("empty");
     }
   }
 

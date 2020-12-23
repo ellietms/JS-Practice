@@ -20,9 +20,7 @@ function FindPrefix(str1, str2) {
   return prefix;
 }
 
-FindPrefix("Hello", "Heyloo");
 
-// ["H","HY","L"]
 function commonPrefix(array) {
   let prefix;
   let commonPrefixes = [];
@@ -35,14 +33,18 @@ function commonPrefix(array) {
       console.log("-----");
     }
   }
-  console.log("longest common prefix of this array is : ",commonPrefixes.sort((a,b) => b.length - a.length)[0]);
-  console.log("-----");
+  let sortedCommonPrefixes = commonPrefixes.sort((a,b) => b.length - a.length);
+  console.log("sortedCommonPrefixes",sortedCommonPrefixes);
+  if(sortedCommonPrefixes[0].length === sortedCommonPrefixes[1].length){
+   let longestPrefixes =  sortedCommonPrefixes.filter(element => element.length === sortedCommonPrefixes[0].length)
+    console.log("longest common prefix of this array is :",longestPrefixes);
+    console.log("-----");
+  }
+  else{
+    console.log("longest common prefix of this array is :", sortedCommonPrefixes[0]);
+  }
 }
 
 commonPrefix(["I am Ellie","helo","heloo ellie","bye ellie","goodbye","goodnight"]);
 commonPrefix(["Hello", "Hey", "Hi"]);
-commonPrefix([
-  "Helloo Ellie",
-  "I like cheese",
-  "Helloo Daniel",
-])
+commonPrefix(["HellooEllie","I like cheese","HellooDaniel","Halala","Halalauu"]);

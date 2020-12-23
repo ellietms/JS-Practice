@@ -32,7 +32,7 @@ function commonPrefix(array) {
       commonPrefixes.push(prefix);
       console.log("for this pair", array[i],"-" ,array[j]);
       console.log("common prefix is : ", prefix);
-      console.group("-----");
+      console.log("-----");
     }
   }
   console.log("longest common prefix of this array is : ",commonPrefixes.sort((a,b) => b.length - a.length)[0]);

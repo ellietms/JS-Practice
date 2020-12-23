@@ -1,39 +1,38 @@
-const str = "Hellloo";
-const str2 = "HEllie";
-let prefix = [];
+// can you just write a function which, if you give it two strings, will return the common prefix of the two strings?
 
-function FindPrefix(str, str2) {
-  let lengthStr = str.length;
+//  For function :
+// Initially, the common prefix is empty.
+// Then, we’ll look at each letter, and if they’re the same, we’ll add them to the common prefix.
+// We need to stop when we run out of letters in either word, or when the letters are different.
+
+function FindPrefix(str1, str2) {
+  let prefix = "";
+  let lengthStr1 = str1.length;
   let lengthStr2 = str2.length;
-  str = str.toLowerCase();
-  str2 = str2.toLowerCase();
-  if (lengthStr > lengthStr2) {
-    for (let i = 0;i<lengthStr2;i++) {
-      if (str2.substring(0, i + 1).includes(str.substring(0, i + 1))) {
-        prefix.push(str2.substring(0, i + 1));
-      }
-    }
-    if (prefix.length === 1) {
-      console.log("1", prefix[0]);
-    } else if (prefix.length !== 0) {
-      console.log(prefix[prefix.length - 1]);
+  let length = Math.min(lengthStr1, lengthStr2);
+  for (let i = 0; i < length; i++) {
+    if (str2.charAt(i) === str1.charAt(i)) {
+      prefix = prefix.concat(str2.charAt(i));
     } else {
-      console.log("Empty");
+      break;
     }
-  } else {
-    for (let i = 0; i < lengthStr; i++) {
-      if (str.substring(0, i + 1).includes(str2.substring(0, i + 1))) {
-        prefix.push(str.substring(0, i + 1));
-      }
-    }
-    if (prefix.length === 1) {
-      console.log("1", prefix[0]);
-    } else if (prefix.length !== 0) {
-      console.log("2", prefix[prefix.length - 1]);
-    } else {
-      console.log("Empty");
+  }
+  return prefix;
+}
+
+FindPrefix("Hello", "Heyloo");
+
+// ["H","HY","L"]
+function commonPrefix(array) {
+  let prefix;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      prefix = FindPrefix(array[i], array[j]);
+      console.log("for this pair", array[i], array[j]);
+      console.log("common prefix is : ", prefix);
+      console.group("-----");
     }
   }
 }
 
-FindPrefix(str, str2);
+commonPrefix(["Hello", "Hey", "Hi"]);

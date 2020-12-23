@@ -7,6 +7,16 @@
 //  how can you compare all of the elements to find the longest common prefix of any two?
 
 
+// Given an array of strings, find the longest common prefix of any two strings. 
+// Goals :
+// Be able to find a common prefix between two strings
+// Be able to find each pair
+// Find the common prefix between each pair
+// Find the longest one
+
+
+
+
 // Steps : 
 //1- try to write your function to print out the pairs
 //to compare every pair of elements, you probably need two loops, one inside the other
@@ -40,44 +50,22 @@ function printPairs (array){
 
 
 //  ---------------------------------------------------------- 
-
-let prefix = [];
-let prefixes = [];
-
 //step 2 - show prefix
-function FindPrefix(str, str2) {  
+function FindPrefix(str, str2) {
+    let prefix = "";
     let lengthStr = str.length;
     let lengthStr2 = str2.length;
-    str = str.toLowerCase();
-    str2 = str2.toLowerCase();
-    if (lengthStr > lengthStr2 && lengthStr !== 0 && lengthStr2 !== 0 ) {  
-      for (let i = 0;i<lengthStr2;i++) {
-        if(str2.substring(0, i + 1).includes(str.substring(0, i + 1)) ) {  
-          prefix.push(str2.substring(0, i + 1));
+    let length = Math.min(lengthStr,lengthStr2)
+      for (let i = 0;i<length;i++) {
+        if (str2.charAt(i) === str.charAt(i)) {
+          prefix = prefix.concat(str2.charAt(i));
+        }
+        else{
+          break;
         }
       }
-      prefixes.push(prefix[prefix.length - 1]);
-      console.log("PREFIXES",prefixes);
+      return (prefix);
     } 
-    else  if(lengthStr < lengthStr2 && lengthStr !== 0 && lengthStr2 !== 0){
-      for (let i = 0; i < lengthStr; i++) {
-        if(str.substring(0, i + 1).includes(str2.substring(0, i + 1))) {
-            prefix.push(str.substring(0, i + 1));
-        }
-      }
-      prefixes.push(prefix[prefix.length - 1]);
-      console.log("PREFIXES",prefixes);
-    
-    }
-    else{
-      console.log("")
-    }
-    prefixes = prefixes.filter((data,index,wholeData) =>  wholeData.indexOf(data) === index);
-    console.log("P",prefixes);
-  }
-
-
-
 // ----------------------------------------------------------------
 
 function printCommonPrefix (array){
@@ -89,7 +77,7 @@ function printCommonPrefix (array){
             }
         }
     }
-    console.log("Longest Prefix in the array is : ",finalResults.sort((a,b) => b.length - a.length)[0]);
+    console.log("Longest Prefix in the array is : ",finalResults);
     console.log("---")
 }
 

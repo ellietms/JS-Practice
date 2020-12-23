@@ -1,4 +1,5 @@
 // can you just write a function which, if you give it two strings, will return the common prefix of the two strings?
+
 //  For function :
 // Initially, the common prefix is empty.
 // Then, we’ll look at each letter, and if they’re the same, we’ll add them to the common prefix.

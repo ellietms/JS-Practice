@@ -1,6 +1,5 @@
 // given a non-empty array of integers,every element appears twice except for one,find that single one.
 
-//[4,1,2,1,2]
 
 function singleOne(array){
     let singleOne = "";
@@ -18,6 +17,8 @@ function singleOne(array){
 console.log("singleOne",singleOne)
 console.log("---")
 }
+
+
 
 singleOne([1,2,1,2,4]);
 singleOne([2,2,1]);

@@ -22,8 +22,7 @@ let example = [
 //  and then you immediately undo that. Can you work out how to solve the problem without doing that?
 
 function longestWordInArray(array){
-   let longestWords = "";
-   // ask about return 
+   let longestWords = ""; 
   array.map(eachString => {
   if(eachString.split(" ").sort((a,b) => b.length - a.length)[0].length > longestWords.length){
     longestWords = eachString.split(" ").sort((a,b) => b.length - a.length)[0];

@@ -20,18 +20,6 @@ function FindPrefix(str1, str2) {
   return prefix;
 }
 
-
-// [
-//   "I am Ellie",
-//   "helo",
-//   "heloo ellie",
-//   "bye ellie",
-//   "goodbye",
-//   "goodnight",
-// ]
-
-
-
 //  Right now you're finding the common prefix between every pair of strings -
 //  can you solve the problem by only needing to compare fewer strings?)
 
@@ -52,7 +40,6 @@ function deleteExtras(array){
   }
   return (array);
 }
-
 
 
 function commonPrefix(array) {

@@ -22,29 +22,19 @@ function FindPrefix(str1, str2) {
 
 function commonPrefix(array) {
   let prefix;
-  let commonPrefixes = "";
-  let lengths = []
+  let prefixes = [];
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
       prefix = FindPrefix(array[i], array[j]);
-      commonPrefixes = commonPrefixes.concat(" ",prefix);
+      if(prefixes.length < prefix.length){
+        prefixes.splice(0,1,prefix)
+      }
       console.log("for this pair", array[i], "-", array[j]);
       console.log("common prefix is : ", prefix);
       console.log("-----");
     }
   }
-  commonPrefixes = commonPrefixes.split(" ").filter(element => element !== "");
-  commonPrefixes.map(element => lengths.push(element.length));
-  let longestLength = Math.max(...lengths)
-   if (commonPrefixes.filter(prefix => prefix.length === longestLength).length > 1) {
-    let longestPrefixes = commonPrefixes.filter(element => element.length === longestLength);
-    console.log("longest common prefix of this array is :", longestPrefixes);
-    console.log("-----");
-  } else {
-    console.log(
-      "longest common prefix of this array is :",
-     commonPrefixes.filter(element => element.length == longestLength)[0])
-  }
+  console.log("longestPrefix is",prefixes[0]);
 }
 
 commonPrefix([

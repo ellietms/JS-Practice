@@ -22,29 +22,28 @@ function FindPrefix(str1, str2) {
 
 function commonPrefix(array) {
   let prefix;
-  let commonPrefixes = [];
+  let commonPrefixes = "";
+  let lengths = []
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
       prefix = FindPrefix(array[i], array[j]);
-      commonPrefixes.push(prefix);
+      commonPrefixes = commonPrefixes.concat(" ",prefix);
       console.log("for this pair", array[i], "-", array[j]);
       console.log("common prefix is : ", prefix);
       console.log("-----");
     }
   }
-  let sortedCommonPrefixes = commonPrefixes.sort((a, b) => b.length - a.length);
-  console.log("sortedCommonPrefixes", sortedCommonPrefixes);
-  if (sortedCommonPrefixes[0].length === sortedCommonPrefixes[1].length) {
-    let longestPrefixes = sortedCommonPrefixes.filter(
-      (element) => element.length === sortedCommonPrefixes[0].length
-    );
+  commonPrefixes = commonPrefixes.split(" ").filter(element => element !== "");
+  commonPrefixes.map(element => lengths.push(element.length));
+  let longestLength = Math.max(...lengths)
+   if (commonPrefixes.filter(prefix => prefix.length === longestLength).length > 1) {
+    let longestPrefixes = commonPrefixes.filter(element => element.length === longestLength);
     console.log("longest common prefix of this array is :", longestPrefixes);
     console.log("-----");
   } else {
     console.log(
       "longest common prefix of this array is :",
-      sortedCommonPrefixes[0]
-    );
+     commonPrefixes.filter(element => element.length == longestLength)[0])
   }
 }
 
@@ -56,7 +55,7 @@ commonPrefix([
   "goodbye",
   "goodnight",
 ]);
-commonPrefix(["Hello", "Hey", "Hi"]);
+ commonPrefix(["Hello", "Hey", "Hi"]);
 commonPrefix([
   "HellooEllie",
   "I like cheese",

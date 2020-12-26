@@ -1,6 +1,5 @@
 // given an integer , show it is the power of 2 or not .
 
-
 function isPowerTwo(number){
     // 218
     let i = 1;

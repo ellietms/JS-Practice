@@ -19,38 +19,14 @@ function FindPrefix(str1, str2) {
   return prefix;
 }
 
-// improvement of having less pairs for comparing their prefixes
+// improvement of having less pairs for comparing their prefixes :
 //  Right now you're finding the common prefix between every pair of strings -
 //  can you solve the problem by only needing to compare fewer strings?)
 // I think there is a way you can always not have to compare every element with every other element
-function deleteExtras(array) {
-  let firstLetters = [];
-  let removedOnes = [];
-  for (let i = 0; i < array.length; i++) {
-    firstLetters.push(array[i].charAt(0));
-  }
-  let length = firstLetters.length;
-  for (let i = 0; i < length; i++) {
-    if (
-      firstLetters.indexOf(firstLetters[i]) === i &&
-      firstLetters.indexOf(firstLetters[i], i + 1) === -1
-    ) {
-      removedOnes.push(firstLetters[i]);
-      firstLetters.splice(i, 1);
-      i = i - 1;
-    }
-  }
-  for (let i = 0; i < removedOnes.length; i++) {
-    array = array.filter((element) => element.charAt(0) !== removedOnes[i]);
-  }
-  return array;
-}
-
 function commonPrefix(array) {
   let prefix;
   let newPrefix = [];
-  array.sort();
-  finalArray = deleteExtras(array);
+  finalArray =  array.sort();
   console.log("finalArray", finalArray);
   for (let i = 0; i < finalArray.length - 1; i++) {
     prefix = FindPrefix(finalArray[i], finalArray[i + 1]);

@@ -58,14 +58,10 @@ function commonPrefix(array) {
         newPrefix.push(prefix);
       }
        else if (newPrefix[newPrefix.length - 1].length < prefix.length && newPrefix.includes(prefix) === false ) {
-       for(let i = 0 ; i < newPrefix.length ; i++){
-        if(newPrefix[i].length !== prefix.length){
-          newPrefix.splice(i,1);
-          i = i -1;
-        }
+        newPrefix = [];
+        newPrefix.push(prefix);
        }
-       newPrefix.push(prefix);
-      } 
+      
       else if (newPrefix[newPrefix.length - 1].length === prefix.length && newPrefix[newPrefix.length - 1] !== prefix && newPrefix.includes(prefix) === false ) {
         newPrefix.push(prefix);
       } 

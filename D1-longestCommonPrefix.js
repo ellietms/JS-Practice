@@ -54,30 +54,22 @@ function commonPrefix(array) {
     for (let j = i + 1; j < newArray.length; j++) {
       prefix = FindPrefix(newArray[i], newArray[j]); 
       //if you know they all have the same length.
-      if (newPrefix.length === 0) {
-        newPrefix.push(prefix);
-      }
-       else if (newPrefix[newPrefix.length - 1].length < prefix.length && newPrefix.includes(prefix) === false ) {
+       if (newPrefix.length === 0 ||newPrefix[newPrefix.length - 1].length < prefix.length) {
         newPrefix = [];
         newPrefix.push(prefix);
        }
-      
-      else if (newPrefix[newPrefix.length - 1].length === prefix.length && newPrefix[newPrefix.length - 1] !== prefix && newPrefix.includes(prefix) === false ) {
+       else if(newPrefix[newPrefix.length - 1].length === prefix.length && newPrefix.includes(prefix) === false){
         newPrefix.push(prefix);
-      } 
-      else if (newPrefix[newPrefix.length - 1] > prefix.length) {
-        newPrefix = newPrefix;
-      }
-
+       }
+      
       console.log("for this pair", newArray[i], "-", newArray[j]);
       console.log("common prefix is : ", newPrefix);
       console.log("-----");
-    }
   }
   // You don't need to sort an array of strings by their length, if you know they all have the same length.
   console.log("longest Prefix is : ",newPrefix);
 }
-
+}
 commonPrefix(["Hello", "Hey", "Me", "Meep", "Pie", "Pierce"]);
 //  commonPrefix(["Hello", "Hi", "Me", "Meep"]);
 commonPrefix([

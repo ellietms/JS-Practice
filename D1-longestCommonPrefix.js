@@ -28,10 +28,8 @@ function deleteExtras(array) {
   for (let i = 0; i < array.length; i++) {
     firstLetters.push(array[i].charAt(0));
   }
-  let length =  firstLetters.length
-  console.log("without",firstLetters);
+  let length =  firstLetters.length;
   for (let i = 0; i < length; i++) {
-    console.log(i);
     if (
       firstLetters.indexOf(firstLetters[i]) === i &&
       firstLetters.indexOf(firstLetters[i], i + 1) === -1
@@ -39,8 +37,6 @@ function deleteExtras(array) {
       removedOnes.push(firstLetters[i]);
       firstLetters.splice(i, 1);
       i = i - 1;
-      console.log("removed",removedOnes);
-      console.log("with",firstLetters);
     }
   }
   for (let i = 0; i < removedOnes.length; i++) {
@@ -56,15 +52,24 @@ function commonPrefix(array) {
   console.log("Final Array without extras : ", newArray);
   for (let i = 0; i < newArray.length; i++) {
     for (let j = i + 1; j < newArray.length; j++) {
-      prefix = FindPrefix(newArray[i], newArray[j]); //string //He //H
+      prefix = FindPrefix(newArray[i], newArray[j]); 
+      //if you know they all have the same length.
       if (newPrefix.length === 0) {
         newPrefix.push(prefix);
-      } else if (newPrefix[newPrefix.length - 1].length < prefix.length && newPrefix.includes(prefix) === false ) {
-        newPrefix.pop();
+      }
+       else if (newPrefix[newPrefix.length - 1].length < prefix.length && newPrefix.includes(prefix) === false ) {
+       for(let i = 0 ; i < newPrefix.length ; i++){
+        if(newPrefix[i].length !== prefix.length){
+          newPrefix.splice(i,1);
+          i = i -1;
+        }
+       }
+       newPrefix.push(prefix);
+      } 
+      else if (newPrefix[newPrefix.length - 1].length === prefix.length && newPrefix[newPrefix.length - 1] !== prefix && newPrefix.includes(prefix) === false ) {
         newPrefix.push(prefix);
-      } else if (newPrefix[newPrefix.length - 1].length === prefix.length && newPrefix[newPrefix.length - 1] !== prefix && newPrefix.includes(prefix) === false ) {
-        newPrefix.push(prefix);
-      } else if (newPrefix[newPrefix.length - 1] > prefix.length) {
+      } 
+      else if (newPrefix[newPrefix.length - 1] > prefix.length) {
         newPrefix = newPrefix;
       }
 
@@ -74,37 +79,29 @@ function commonPrefix(array) {
     }
   }
   // You don't need to sort an array of strings by their length, if you know they all have the same length.
-  if (newPrefix.length > 1){
-    newPrefix = newPrefix.filter((prefix) => prefix !== "");
-    let maxLength = Math.max(...newPrefix.map(element => element.length));
-    let finalPrefix = newPrefix.filter(element => element.length === maxLength);
-    console.log("Prefixes are :",finalPrefix)
-}
-else{
-  console.log("longestCommonPrefix : ",newPrefix);
-}
+  console.log("longest Prefix is : ",newPrefix);
 }
 
 commonPrefix(["Hello", "Hey", "Me", "Meep", "Pie", "Pierce"]);
 //  commonPrefix(["Hello", "Hi", "Me", "Meep"]);
-// commonPrefix([
-//   "I am Ellie",
-//   "helo",
-//   "heloo ellie",
-//   "bye ellie",
-//   "goodbye",
-//   "goodnight",
-// ]);
+commonPrefix([
+  "I am Ellie",
+  "helo",
+  "heloo ellie",
+  "bye ellie",
+  "goodbye",
+  "goodnight",
+]);
 
-// commonPrefix(["Hello", "Hey", "I","Hi"]);
+commonPrefix(["Hello", "Hey", "I","Hi"]);
 
-//  commonPrefix([
-//   "HellooEllie",
-//   "I like cheese",
-//   "HellooDaniel",
-//   "Halala",
-//   "Halalauu",
-// ]);
+ commonPrefix([
+  "HellooEllie",
+  "I like cheese",
+  "HellooDaniel",
+  "Halala",
+  "Halalauu",
+]);
 
 
-// commonPrefix(["H","J","HH","JI","JIN","HIJ","K","B","O","Olu","HJIO"])
+commonPrefix(["H","J","HH","JI","JIN","HIJ","K","B","O","Olu","HJIO"])

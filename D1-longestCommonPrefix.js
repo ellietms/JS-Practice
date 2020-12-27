@@ -73,35 +73,38 @@ function commonPrefix(array) {
       console.log("-----");
     }
   }
+  // You don't need to sort an array of strings by their length, if you know they all have the same length.
   if (newPrefix.length > 1){
     newPrefix = newPrefix.filter((prefix) => prefix !== "");
-    let sortedByLength = newPrefix.sort((a,b) => b.length - a.length);
-    console.log("sortedByLength",sortedByLength);
-    let commonPrefixes = sortedByLength.filter(longestCommons => longestCommons.length === sortedByLength[0].length);
-    console.log("longestCommons",commonPrefixes);
+    let maxLength = Math.max(...newPrefix.map(element => element.length));
+    let finalPrefix = newPrefix.filter(element => element.length === maxLength);
+    console.log("Prefixes are :",finalPrefix)
 }
 else{
   console.log("longestCommonPrefix : ",newPrefix);
 }
 }
-commonPrefix([
-  "I am Ellie",
-  "helo",
-  "heloo ellie",
-  "bye ellie",
-  "goodbye",
-  "goodnight",
-]);
 
-commonPrefix(["Hello", "Hey", "I","Hi"]);
+commonPrefix(["Hello", "Hey", "Me", "Meep", "Pie", "Pierce"]);
+//  commonPrefix(["Hello", "Hi", "Me", "Meep"]);
+// commonPrefix([
+//   "I am Ellie",
+//   "helo",
+//   "heloo ellie",
+//   "bye ellie",
+//   "goodbye",
+//   "goodnight",
+// ]);
 
- commonPrefix([
-  "HellooEllie",
-  "I like cheese",
-  "HellooDaniel",
-  "Halala",
-  "Halalauu",
-]);
+// commonPrefix(["Hello", "Hey", "I","Hi"]);
+
+//  commonPrefix([
+//   "HellooEllie",
+//   "I like cheese",
+//   "HellooDaniel",
+//   "Halala",
+//   "Halalauu",
+// ]);
 
 
-commonPrefix(["H","J","HH","JI","JIN","HIJ","K","B","O","Olu","HJIO"])
+// commonPrefix(["H","J","HH","JI","JIN","HIJ","K","B","O","Olu","HJIO"])

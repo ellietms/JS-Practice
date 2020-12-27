@@ -22,39 +22,21 @@ function FindPrefix(str1, str2) {
 //  Right now you're finding the common prefix between every pair of strings -
 //  can you solve the problem by only needing to compare fewer strings?)
 
-function deleteExtras(array) {
-  let firstLetters = [];
-  let removedOnes = [];
-  for (let i = 0; i < array.length; i++) {
-    firstLetters.push(array[i].charAt(0));
-  }
-  let length =  firstLetters.length;
-  for (let i = 0; i < length; i++) {
-    if (
-      firstLetters.indexOf(firstLetters[i]) === i &&
-      firstLetters.indexOf(firstLetters[i], i + 1) === -1
-    ) {
-      removedOnes.push(firstLetters[i]);
-      firstLetters.splice(i, 1);
-      i = i - 1;
-    }
-  }
-  for (let i = 0; i < removedOnes.length; i++) {
-    array = array.filter((element) => element.charAt(0) !== removedOnes[i]);
-  }
-  return array;
-}
+
+// I think there is a way you can always not have to compare every element with every other element
+// function deleteExtras(array) {
+  
+  
+// }
 
 function commonPrefix(array) {
   let prefix;
   let newPrefix = [];
-  let newArray = deleteExtras(array);
-  console.log("Final Array without extras : ", newArray);
-  for (let i = 0; i < newArray.length; i++) {
-    for (let j = i + 1; j < newArray.length; j++) {
-      prefix = FindPrefix(newArray[i], newArray[j]); 
+  console.log("Final Array without extras : ", array);
+  for (let i = 0; i < array.length - 1; i++) {
+      prefix = FindPrefix(array[i],array[i + 1]); 
       //if you know they all have the same length.
-       if (newPrefix.length === 0 ||newPrefix[newPrefix.length - 1].length < prefix.length) {
+       if (newPrefix.length === 0 || newPrefix[newPrefix.length - 1].length < prefix.length) {
         newPrefix = [];
         newPrefix.push(prefix);
        }
@@ -62,14 +44,14 @@ function commonPrefix(array) {
         newPrefix.push(prefix);
        }
       
-      console.log("for this pair", newArray[i], "-", newArray[j]);
+      console.log("for this pair", array[i], "-", array[i+1]);
       console.log("common prefix is : ", newPrefix);
       console.log("-----");
   }
   // You don't need to sort an array of strings by their length, if you know they all have the same length.
-  console.log("longest Prefix is : ",newPrefix);
+  console.log("longest Prefix is :",newPrefix);
 }
-}
+
 commonPrefix(["Hello", "Hey", "Me", "Meep", "Pie", "Pierce"]);
 //  commonPrefix(["Hello", "Hi", "Me", "Meep"]);
 commonPrefix([
@@ -81,7 +63,7 @@ commonPrefix([
   "goodnight",
 ]);
 
-commonPrefix(["Hello", "Hey", "I","Hi"]);
+commonPrefix(["Hello", "Hey","Hi"]);
 
  commonPrefix([
   "HellooEllie",
@@ -92,4 +74,4 @@ commonPrefix(["Hello", "Hey", "I","Hi"]);
 ]);
 
 
-commonPrefix(["H","J","HH","JI","JIN","HIJ","K","B","O","Olu","HJIO"])
+// commonPrefix(["H","J","HH","JI","JIN","HIJ","K","B","O","Olu","HJIO"])

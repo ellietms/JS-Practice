@@ -19,6 +19,7 @@ function FindPrefix(str1, str2) {
   return prefix;
 }
 
+
 // improvement of having less pairs for comparing their prefixes :
 //  Right now you're finding the common prefix between every pair of strings -
 //  can you solve the problem by only needing to compare fewer strings?)
@@ -50,6 +51,10 @@ function commonPrefix(array) {
   }
   console.log("longest Prefix is :", newPrefix);
 }
+
+
+
+// Tests 
 
 commonPrefix(["Turkey", "Goodbye", "Hello", "Hi", "Grapes", "Thanks"]);
 

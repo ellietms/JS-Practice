@@ -12,7 +12,7 @@ let example = [
   "Greetings from the galaxy MACS0647-JD, or what we call home",
 ];
 
-// improvement :
+// improvement 1 :
 //You’re currently storing an array of one element per string in the original array.
 //Can you solve the problem without having to store so many things?
 
@@ -20,8 +20,12 @@ let example = [
 // Next challenge: When you do array.join(" ") you make one really long string,
 //  and then you immediately undo that. Can you work out how to solve the problem without doing that?
 
+//  improvement 3:
+// It looks like you have the same code twice - 
+// the if (longestWordsOfThisArray.length !== 1) branch looks like it contains all of the code from the outer if/else chain - what's up with that?
 
-// improvement 3 :
+
+// improvement 4 :
 // Let's talk about how many times you look at each word
 // Added to your saved items
 // And this is sometimes called "efficiency"

@@ -12,57 +12,72 @@ let example = [
   "Greetings from the galaxy MACS0647-JD, or what we call home",
 ];
 
-// improvement : 
+// improvement :
 //You’re currently storing an array of one element per string in the original array.
-//Can you solve the problem without having to store so many things? 
+//Can you solve the problem without having to store so many things?
 
-
-// improvement 2 : 
+// improvement 2 :
 // Next challenge: When you do array.join(" ") you make one really long string,
 //  and then you immediately undo that. Can you work out how to solve the problem without doing that?
 
-function longestWordInArray(array){
+function longestWordInArray(array) {
   let longestWord = [];
-  for(let i = 0 ; i < array.length ; i++){
+  for (let i = 0; i < array.length; i++) {
     let arrayOfWords = array[i].split(" ");
-    let arrayOflengths = arrayOfWords.map(word => word.length);
+    let arrayOflengths = arrayOfWords.map((word) => word.length);
     let maxLength = Math.max(...arrayOflengths);
-    let longestWordsOfThisArray = arrayOfWords.filter(word => word.length === maxLength);
-    if(longestWordsOfThisArray.length  === 1 && longestWord.length === 0){
+    let longestWordsOfThisArray = arrayOfWords.filter(
+      (word) => word.length === maxLength
+    );
+    if (longestWordsOfThisArray.length === 1 && longestWord.length === 0) {
       longestWord.push(longestWordsOfThisArray[0]);
-    }
-    else if(longestWordsOfThisArray.length  === 1 &&  longestWord[longestWord.length - 1].length < longestWordsOfThisArray[0].length){
+    } else if (
+      longestWordsOfThisArray.length === 1 &&
+      longestWord[longestWord.length - 1].length <
+        longestWordsOfThisArray[0].length
+    ) {
       longestWord = [];
       longestWord.push(longestWordsOfThisArray[0]);
-    }
-    else if(longestWordsOfThisArray.length  === 1  && longestWord[longestWord.length - 1].length > longestWordsOfThisArray[0].length){
+    } else if (
+      longestWordsOfThisArray.length === 1 &&
+      longestWord[longestWord.length - 1].length >
+        longestWordsOfThisArray[0].length
+    ) {
       longestWord = longestWord;
-    }
-    else if(longestWordsOfThisArray.length  !== 1){
-      let lengthsOfLongestWords = longestWordsOfThisArray.map(word => word.length);
+    } else if (longestWordsOfThisArray.length !== 1) {
+      let lengthsOfLongestWords = longestWordsOfThisArray.map(
+        (word) => word.length
+      );
       let maxLength = Math.max(...lengthsOfLongestWords);
-      longestWordsOfThisArray.filter(word => word.length === maxLength);
-      if(longestWord.length === 0){
-        longestWordsOfThisArray.map(word => longestWord.push(word));
-      }
-      else if(longestWord.length !== 0){
-        for(let i = 0 ; i < longestWordsOfThisArray.length ; i++){
-          if(longestWord[longestWord.length - 1].length > longestWordsOfThisArray[i].length){
+      longestWordsOfThisArray.filter((word) => word.length === maxLength);
+      if (longestWord.length === 0) {
+        longestWordsOfThisArray.map((word) => longestWord.push(word));
+      } else if (longestWord.length !== 0) {
+        for (let i = 0; i < longestWordsOfThisArray.length; i++) {
+          if (
+            longestWord[longestWord.length - 1].length >
+            longestWordsOfThisArray[i].length
+          ) {
             longestWord = longestWord;
-          }
-          else if(longestWord[longestWord.length - 1].length < longestWordsOfThisArray[i].length){
+          } else if (
+            longestWord[longestWord.length - 1].length <
+            longestWordsOfThisArray[i].length
+          ) {
             longestWord = [];
             longestWord.push(longestWordsOfThisArray[i]);
-          }
-          else if(longestWord[longestWord.length - 1].length === longestWordsOfThisArray[i].length){
+          } else if (
+            longestWord[longestWord.length - 1].length ===
+            longestWordsOfThisArray[i].length
+          ) {
             longestWord.push(longestWordsOfThisArray[i]);
           }
         }
       }
     }
+
     console.log(arrayOfWords);
-    console.log("LongestOnes",longestWord);
+    console.log("LongestOnes", longestWord);
   }
-  }
+}
 
 longestWordInArray(example);

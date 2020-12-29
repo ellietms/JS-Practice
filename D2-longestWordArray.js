@@ -20,6 +20,14 @@ let example = [
 // Next challenge: When you do array.join(" ") you make one really long string,
 //  and then you immediately undo that. Can you work out how to solve the problem without doing that?
 
+
+// improvement 3 :
+// Let's talk about how many times you look at each word
+// Added to your saved items
+// And this is sometimes called "efficiency"
+// Right now, I think you look at each word 5 times 
+// it should be two times
+
 function longestWordInArray(array) {
   let longestWord = [];
   for (let i = 0; i < array.length; i++) {

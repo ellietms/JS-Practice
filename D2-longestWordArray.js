@@ -46,12 +46,7 @@ function longestWordInArray(array) {
         longestWord.push(arrayOfWords[i])
       }
       else if(longestWord.length > 0){
-        if (
-                longestWord[longestWord.length - 1].length >
-                arrayOfWords[i].length
-              ) {
-                longestWord = longestWord;
-              } else if (
+            if (
                 longestWord[longestWord.length - 1].length <
                 arrayOfWords[i].length
               ) {

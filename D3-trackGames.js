@@ -31,37 +31,42 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
   let won = 0;
   let lost = 0;
   const results = {
-    won: () => { 
-      if(won + lost < windowSize){  
-      won = won + 1;
+    won: () => {
+      if (won + lost < windowSize) {
+        won = won + 1;
+      }
+      if (won + lost >= windowSize &&  won / (won + lost) < successRate) {
+        loggingCallback();
+        won = 0;
+        lost = 0;
+      }
       return won;
-      }
-      else if((won/(won + lost)) < successRate && won + lost === windowSize){
-        loggingCallback(); 
-      } 
-      else if(won + lost > windowSize){
-         return won = 1;
-      }
     },
     lost: () => {
-    if(won +  lost < windowSize){ 
-      lost = lost + 1;
-       return lost;
-    }
-    else if((won/(won + lost)) < successRate && won + lost === windowSize){
-        loggingCallback(); 
-    } 
-    else if(won + lost > windowSize){
-        return  lost = 1;
+      if (won + lost < windowSize) {
+        lost = lost + 1;
+      } 
+       if (
+        won + lost >= windowSize &&
+        won / (won + lost) < successRate
+      ) {
+        loggingCallback();
+        lost = 0;
+         won = 0;
       }
-    },
-  };
-    return results;
+      return lost;
+    }
+}
+  return results;
 }
 
-
 const tracker = makeGameTacker(4, 0.9, loggingCallback);
+tracker.won(); 
+tracker.lost(); 
+tracker.won(); 
+tracker.won(); 
+
+tracker.won(); 
 tracker.won();
 tracker.lost();
-tracker.won();
 tracker.won();

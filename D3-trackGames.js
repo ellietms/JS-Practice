@@ -30,31 +30,25 @@ const loggingCallback = () => console.log("You lost too many games");
 function makeGameTacker(windowSize, successRate, loggingCallback) {
   let won = 0;
   let lost = 0;
+ //   [1,1,2,3]
+  let arrayResults = [];  
   const results = {
     won: () => {
-      if (won + lost < windowSize) {
+     if(arrayResults.length !== windowSize){   
+       won = won + 1;
+       arrayResults.push(won); 
+     }
+     if(arrayResults.length === windowSize &&  won / (won + lost) < successRate){
+        loggingCallback(); 
+     }
+     else if(arrayResults.length > windowSize){
+        arrayResults = arrayResults.splice(0,1);
         won = won + 1;
-      }
-      if (won + lost >= windowSize &&  won / (won + lost) < successRate) {
-        loggingCallback();
-        won = 0;
-        lost = 0;
-      }
-      return won;
+     }   
     },
     lost: () => {
-      if (won + lost < windowSize) {
-        lost = lost + 1;
-      } 
-       if (
-        won + lost >= windowSize &&
-        won / (won + lost) < successRate
-      ) {
-        loggingCallback();
-        lost = 0;
-         won = 0;
-      }
-      return lost;
+     lost = lost + 1;
+     arrayResults.push(lost);
     }
 }
   return results;
@@ -66,7 +60,3 @@ tracker.lost();
 tracker.won(); 
 tracker.won(); 
 
-tracker.won(); 
-tracker.won();
-tracker.lost();
-tracker.won();

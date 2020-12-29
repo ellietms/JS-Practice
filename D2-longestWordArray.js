@@ -28,40 +28,39 @@ let example = [
 // Right now, I think you look at each word 5 times 
 // it should be two times
 
+// I think you need the first one (for splitting), 
+// and the last one (deciding if it should go in longestWord), and you don't need any in the middle
+
+// You need to look at the words twice. Once to find the words (the split), 
+// and once in a loop, where you decide for each word whether it's the longest you've seen so far.
 function longestWordInArray(array) {
   let longestWord = [];
   for (let i = 0; i < array.length; i++) {
-    let arrayOfWords = array[i].split(" ");
-      if (longestWord.length === 0) {
-        arrayOfWords.filter(word => {
-          if(word.length === Math.max(...(arrayOfWords.map(x => x.length)))){
-            longestWord.push(word)
-          }
-        }
-        )
-      } 
-      else if (longestWord.length > 0) {
-        let longestWordsOfThisArray = arrayOfWords.filter(word => word.length === Math.max(...(arrayOfWords.map(x => x.length)))); 
-        for (let i = 0; i < longestWordsOfThisArray.length; i++) {
-          if (
-            longestWord[longestWord.length - 1].length >
-            longestWordsOfThisArray[i].length
-          ) {
-            longestWord = longestWord;
-          } else if (
-            longestWord[longestWord.length - 1].length <
-            longestWordsOfThisArray[i].length
-          ) {
-            longestWord = [];
-            longestWord.push(longestWordsOfThisArray[i]);
-          } else if (
-            longestWord[longestWord.length - 1].length ===
-            longestWordsOfThisArray[i].length
-          ) {
-            longestWord.push(longestWordsOfThisArray[i]);
-          }
-        }
+    let arrayOfWords = array[i].split(" "); //done
+    for(let i = 0 ; i < arrayOfWords.length ; i++){
+      if(longestWord.length === 0){
+        longestWord.push(arrayOfWords[i])
       }
+      else if(longestWord.length > 0){
+        if (
+                longestWord[longestWord.length - 1].length >
+                arrayOfWords[i].length
+              ) {
+                longestWord = longestWord;
+              } else if (
+                longestWord[longestWord.length - 1].length <
+                arrayOfWords[i].length
+              ) {
+                longestWord = [];
+                longestWord.push(arrayOfWords[i]);
+              } else if (
+                longestWord[longestWord.length - 1].length ===
+                arrayOfWords[i].length
+              ) {
+                longestWord.push(arrayOfWords[i]);
+              }
+      }
+    }
     }
     console.log("LongestOnes", longestWord);
   }

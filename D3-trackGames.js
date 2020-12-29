@@ -25,28 +25,41 @@
 // tracker.lost();
 // should log nothing after the call to won() and then should log "You lost too many games" after the call to lost()
 
-
-function makeGameTacker(windowSize, successRate,loggingCallback) {
-  const amountOfWinning = Math.floor(windowSize * successRate);
-  const amountOfLosing = windowSize - amountOfWinning;
-  const playerSuccessRateOfWinning = amountOfWinning / windowSize;
+// I want for every time you call won or lost, for it to re-calculate the result based on your most recent games
+const loggingCallback = () => console.log("You lost too many games");
+function makeGameTacker(windowSize, successRate, loggingCallback) {
+  let won = 0;
+  let lost = 0;
   const results = {
-    won:
-     function won() {
-      return "";
+    won: () => {
+      if(won +  lost <= windowSize){  
+      won = won + 1;
+      console.log("WON",won);
+      }
+      else{
+         return won = 1;
+      }
     },
-    lost: function lost() {
-      console.log("Sorry!you lost", amountOfLosing , "times");
+    lost: () => {
+    if(won +  lost <= windowSize){ 
+      lost = lost + 1;
+      console.log("Lost",lost);
+    //   return lost;
+    }
+      else{
+        return  lost = 1;
+      }
     },
   };
-  if (playerSuccessRateOfWinning < successRate) {
-    loggingCallback();
+  if((won/(won + lost)) < successRate && won + lost === windowSize){
+    loggingCallback(); 
   }
-  return results;
+      return results;
 }
 
-const loggingCallback = () => console.log("You lost too many games");
-const tracker = makeGameTacker(1, 0.9, loggingCallback);
- (tracker.won());
- (tracker.lost());
 
+const tracker = makeGameTacker(4, 0.9, loggingCallback);
+tracker.won();
+tracker.lost();
+tracker.won();
+tracker.won();

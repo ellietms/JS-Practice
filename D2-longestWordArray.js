@@ -29,30 +29,10 @@ function longestWordInArray(array) {
     let longestWordsOfThisArray = arrayOfWords.filter(
       (word) => word.length === maxLength
     );
-    if (longestWordsOfThisArray.length === 1 && longestWord.length === 0) {
-      longestWord.push(longestWordsOfThisArray[0]);
-    } else if (
-      longestWordsOfThisArray.length === 1 &&
-      longestWord[longestWord.length - 1].length <
-        longestWordsOfThisArray[0].length
-    ) {
-      longestWord = [];
-      longestWord.push(longestWordsOfThisArray[0]);
-    } else if (
-      longestWordsOfThisArray.length === 1 &&
-      longestWord[longestWord.length - 1].length >
-        longestWordsOfThisArray[0].length
-    ) {
-      longestWord = longestWord;
-    } else if (longestWordsOfThisArray.length !== 1) {
-      let lengthsOfLongestWords = longestWordsOfThisArray.map(
-        (word) => word.length
-      );
-      let maxLength = Math.max(...lengthsOfLongestWords);
-      longestWordsOfThisArray.filter((word) => word.length === maxLength);
       if (longestWord.length === 0) {
         longestWordsOfThisArray.map((word) => longestWord.push(word));
-      } else if (longestWord.length !== 0) {
+      } 
+      else if (longestWord.length > 0) {
         for (let i = 0; i < longestWordsOfThisArray.length; i++) {
           if (
             longestWord[longestWord.length - 1].length >
@@ -74,10 +54,8 @@ function longestWordInArray(array) {
         }
       }
     }
-
-    console.log(arrayOfWords);
     console.log("LongestOnes", longestWord);
   }
-}
+
 
 longestWordInArray(example);

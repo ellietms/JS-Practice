@@ -12,6 +12,15 @@ let example = [
   "Greetings from the galaxy MACS0647-JD, or what we call home",
 ];
 
+let example2 = [
+  "He's in a boy band which doesn't make much sense for a snake",
+  "My Mum tries to be cool by saying that she likes all the same things that I do",
+  "Greetings from the galaxy MACS0647-JD, or what we call home",
+]
+
+
+
+
 // improvement 1 :
 //You’re currently storing an array of one element per string in the original array.
 //Can you solve the problem without having to store so many things?
@@ -66,3 +75,4 @@ function longestWordInArray(array) {
 
 
 longestWordInArray(example);
+longestWordInArray(example2);

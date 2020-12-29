@@ -24,15 +24,16 @@ function longestWordInArray(array) {
   let longestWord = [];
   for (let i = 0; i < array.length; i++) {
     let arrayOfWords = array[i].split(" ");
-    let arrayOflengths = arrayOfWords.map((word) => word.length);
-    let maxLength = Math.max(...arrayOflengths);
-    let longestWordsOfThisArray = arrayOfWords.filter(
-      (word) => word.length === maxLength
-    );
       if (longestWord.length === 0) {
-        longestWordsOfThisArray.map((word) => longestWord.push(word));
+        arrayOfWords.filter(word => {
+          if(word.length === Math.max(...(arrayOfWords.map(x => x.length)))){
+            longestWord.push(word)
+          }
+        }
+        )
       } 
       else if (longestWord.length > 0) {
+        let longestWordsOfThisArray = arrayOfWords.filter(word => word.length === Math.max(...(arrayOfWords.map(x => x.length)))); 
         for (let i = 0; i < longestWordsOfThisArray.length; i++) {
           if (
             longestWord[longestWord.length - 1].length >

@@ -31,30 +31,32 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
   let won = 0;
   let lost = 0;
   const results = {
-    won: () => {
-      if(won +  lost <= windowSize){  
+    won: () => { 
+      if(won + lost < windowSize){  
       won = won + 1;
-      console.log("WON",won);
+      return won;
       }
-      else{
+      else if((won/(won + lost)) < successRate && won + lost === windowSize){
+        loggingCallback(); 
+      } 
+      else if(won + lost > windowSize){
          return won = 1;
       }
     },
     lost: () => {
-    if(won +  lost <= windowSize){ 
+    if(won +  lost < windowSize){ 
       lost = lost + 1;
-      console.log("Lost",lost);
-    //   return lost;
+       return lost;
     }
-      else{
+    else if((won/(won + lost)) < successRate && won + lost === windowSize){
+        loggingCallback(); 
+    } 
+    else if(won + lost > windowSize){
         return  lost = 1;
       }
     },
   };
-  if((won/(won + lost)) < successRate && won + lost === windowSize){
-    loggingCallback(); 
-  }
-      return results;
+    return results;
 }
 
 

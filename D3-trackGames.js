@@ -31,87 +31,71 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
   let won = 0;
   let lost = 0;
   let arrayResults = [];
-  //   [1,2,2,won(3)] 
+  //   [1,2,2,won(3)]
   const results = {
     won: () => {
       if (arrayResults.length < windowSize) {
         won = won + 1;
         arrayResults.push("won");
-      if (
-        arrayResults.length === windowSize &&
-        won / (won + lost) < successRate
-      ) {
-        loggingCallback();
-        // console.log("1FinalWonAfterCallBack1",won);
-      }
-      }
-      else if (
-        arrayResults.length === windowSize 
-      ) {
-        if(arrayResults[0] === "won"){
-           won = won;
-           lost = lost;
-           arrayResults.splice(0,1);
-           arrayResults.push("won");
-           if(won / (won + lost) < successRate){
+        if (
+          arrayResults.length === windowSize &&
+          won / (won + lost) < successRate
+        ) {
+          loggingCallback();
+        }
+      } else if (arrayResults.length === windowSize) {
+        if (arrayResults[0] === "won") {
+          won = won;
+          lost = lost;
+          arrayResults.splice(0, 1);
+          arrayResults.push("won");
+          if (won / (won + lost) < successRate) {
             loggingCallback();
-            // console.log("2FinalWonAfterCallBack2",won);
-           }
-        }
-        else if(arrayResults[0] === "lost"){
-          lost = lost - 1 ;
-           won = won + 1 ; 
-           arrayResults.splice(0,1);
-           arrayResults.push("won");
-           if (won / (won + lost) < successRate){
+          }
+        } else if (arrayResults[0] === "lost") {
+          lost = lost - 1;
+          won = won + 1;
+          arrayResults.splice(0, 1);
+          arrayResults.push("won");
+          if (won / (won + lost) < successRate) {
             loggingCallback();
-            // console.log("3FinalWonAfterCallBack3",lost);
-           }
+          }
         }
-        // console.log("1--arrays",arrayResults);
-        }
-        // console.log("Won--arrays",arrayResults);
-      },
+      }
+    },
     lost: () => {
       if (arrayResults.length < windowSize) {
         lost = lost + 1;
         arrayResults.push("lost");
-      if (
-        arrayResults.length === windowSize &&
-        won / (won + lost) < successRate
-      ) {
-        loggingCallback();
-        // console.log("1FinalLostAfterCallBack1",lost);
-      }
-      }
-      else if (
-        arrayResults.length === windowSize 
-      ) {
-        if(arrayResults[0] === "won"){
-           won = won - 1;
-           lost = lost + 1;
-           arrayResults.splice(0,1);
-           arrayResults.push("lost");
-           if(won / (won + lost) < successRate){
-            loggingCallback();
-            // console.log("2FinalLostAfterCallBack2",lost);
-           }
+        if (
+          arrayResults.length === windowSize &&
+          won / (won + lost) < successRate
+        ) {
+          loggingCallback();
         }
-        else if(arrayResults[0] === "lost"){
+      } else if (arrayResults.length === windowSize) {
+        if (arrayResults[0] === "won") {
+          won = won - 1;
+          lost = lost + 1;
+          arrayResults.splice(0, 1);
+          arrayResults.push("lost");
+          if (won / (won + lost) < successRate) {
+            loggingCallback();
+          }
+        } else if (arrayResults[0] === "lost") {
           lost = lost;
-           won = won; 
-           arrayResults.splice(0,1);
-           arrayResults.push("lost");
-           if (won / (won + lost) < successRate){
+          won = won;
+          arrayResults.splice(0, 1);
+          arrayResults.push("lost");
+          if (won / (won + lost) < successRate) {
             loggingCallback();
-            console.log("3FinalLostAfterCallBack3",lost);
-           }
+            console.log("3FinalLostAfterCallBack3", lost);
+          }
         }
       }
-      //  console.log("arraysINLOst",arrayResults);
     },
   };
- 
+
   return results;
 }
 
@@ -120,6 +104,6 @@ tracker.won();
 tracker.lost();
 tracker.won();
 tracker.won();
-tracker.won();
-tracker.won();
-tracker.lost();
+// tracker.won();
+// tracker.won();
+// tracker.lost();

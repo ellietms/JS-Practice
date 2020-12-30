@@ -35,7 +35,6 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
     won: () => {
       if (arrayResults.length < windowSize) {
         won = won + 1;
-        arrayResults.push("won");
       } 
       else if (arrayResults.length === windowSize) {
         if (arrayResults[0] === "won") {
@@ -47,8 +46,8 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
           won = won + 1;
         }
         arrayResults.splice(0, 1);
-        arrayResults.push("won");
       }
+      arrayResults.push("won");
       if (
         arrayResults.length === windowSize &&
         won / (won + lost) < successRate

@@ -42,23 +42,20 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
         ) {
           loggingCallback();
         }
-      } else if (arrayResults.length === windowSize) {
+      } 
+      else if (arrayResults.length === windowSize) {
         if (arrayResults[0] === "won") {
           won = won;
           lost = lost;
-          arrayResults.splice(0, 1);
-          arrayResults.push("won");
-          if (won / (won + lost) < successRate) {
-            loggingCallback();
-          }
-        } else if (arrayResults[0] === "lost") {
+        } 
+        else if (arrayResults[0] === "lost") {
           lost = lost - 1;
           won = won + 1;
-          arrayResults.splice(0, 1);
-          arrayResults.push("won");
-          if (won / (won + lost) < successRate) {
+        }
+        arrayResults.splice(0, 1);
+        arrayResults.push("won");
+        if (won / (won + lost) < successRate) {
             loggingCallback();
-          }
         }
       }
     },

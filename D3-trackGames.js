@@ -27,51 +27,41 @@
 
 // I want for every time you call won or lost, for it to re-calculate the result based on your most recent games
 const loggingCallback = () => console.log("You lost too many games");
+let arrayResults = [];
+let won = 0;
+let lost = 0;
+let gameRate = won / (won + lost)
+
+ function call(x1,x2,windowSize,successRate,loggingCallback){
+    if (arrayResults.length < windowSize) {
+      x1 = x1 + 1;
+    } 
+    else if (arrayResults.length === windowSize)
+     {
+      if(arrayResults[0] === `${x2}`){
+      x2 = x2 - 1;
+      x1 = x1 + 1;
+      }
+      arrayResults.splice(0, 1);
+    }
+    arrayResults.push(`${x1}`);
+    if (
+      arrayResults.length === windowSize &&
+      gameRate < successRate
+    ) {
+      loggingCallback();
+    }
+}
+
+
+
 function makeGameTacker(windowSize, successRate, loggingCallback) {
-  let won = 0;
-  let lost = 0;
-  let arrayResults = [];
   const results = {
     won: () => {
-      if (arrayResults.length < windowSize) {
-        won = won + 1;
-      } 
-      else if (arrayResults.length === windowSize)
-       {
-        if(arrayResults[0] === "lost"){
-        lost = lost - 1;
-        won = won + 1;
-        }
-        arrayResults.splice(0, 1);
-      }
-      arrayResults.push("won");
-      if (
-        arrayResults.length === windowSize &&
-        won / (won + lost) < successRate
-      ) {
-        loggingCallback();
-      }
+      call(won,lost,windowSize,successRate,loggingCallback);
     },
     lost: () => {
-      if (arrayResults.length < windowSize){
-        lost = lost + 1;
-      } 
-      else if (arrayResults.length === windowSize) 
-      {
-        if(arrayResults[0] === "won")
-        {
-        won = won - 1;
-        ost = lost + 1;
-        }
-        arrayResults.splice(0, 1);
-      }
-      arrayResults.push("lost");
-      if (
-        arrayResults.length === windowSize &&
-        won / (won + lost) < successRate
-      ) {
-        loggingCallback();
-      }
+      call(lost,won,windowSize,successRate,loggingCallback);
     },
   }
   return results;

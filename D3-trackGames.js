@@ -32,27 +32,27 @@ let won = 0;
 let lost = 0;
 
 
- function call(x1,x2,x3,x4,windowSize,successRate,loggingCallback){
+ function call(success,fail,successString,failString,windowSize,successRate,loggingCallback){
     if (arrayResults.length < windowSize) {
-      x1 = x1 + 1;
+      success = success + 1;
     } 
     else if (arrayResults.length === windowSize)
      {
-      if(arrayResults[0] === x4){
-      x2 = x2 - 1;
-      x1 = x1 + 1;
+      if(arrayResults[0] === failString){
+      fail = fail - 1;
+      success = success + 1;
       }
       arrayResults.splice(0, 1);
     }
-    arrayResults.push(x3);
+    arrayResults.push(successString);
     if (
       arrayResults.length === windowSize &&
-      x3 === "won" && x1 / (x1 + x2) < successRate
+      successString === "won" && success / (success + fail) < successRate
     ) {
       loggingCallback();
     }
     else if(arrayResults.length === windowSize &&
-      x3 === "lost" && x2 / (x1 + x2) < successRate){
+      successString === "lost" && fail / (success + fail) < successRate){
         loggingCallback();
       }
     console.log("A",arrayResults);

@@ -36,12 +36,6 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
       if (arrayResults.length < windowSize) {
         won = won + 1;
         arrayResults.push("won");
-        if (
-          arrayResults.length === windowSize &&
-          won / (won + lost) < successRate
-        ) {
-          loggingCallback();
-        }
       } 
       else if (arrayResults.length === windowSize) {
         if (arrayResults[0] === "won") {
@@ -54,9 +48,12 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
         }
         arrayResults.splice(0, 1);
         arrayResults.push("won");
-        if (won / (won + lost) < successRate) {
-            loggingCallback();
-        }
+      }
+      if (
+        arrayResults.length === windowSize &&
+        won / (won + lost) < successRate
+      ) {
+        loggingCallback();
       }
     },
     lost: () => {

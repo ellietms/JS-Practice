@@ -32,25 +32,26 @@ let won = 0;
 let lost = 0;
 let gameRate = won / (won + lost)
 
- function call(x1,x2,windowSize,successRate,loggingCallback){
+ function call(x1,x2,x3,x4,windowSize,successRate,loggingCallback){
     if (arrayResults.length < windowSize) {
       x1 = x1 + 1;
     } 
     else if (arrayResults.length === windowSize)
      {
-      if(arrayResults[0] === `${x2}`){
+      if(arrayResults[0] === x4){
       x2 = x2 - 1;
       x1 = x1 + 1;
       }
       arrayResults.splice(0, 1);
     }
-    arrayResults.push(`${x1}`);
+    arrayResults.push(x3);
     if (
       arrayResults.length === windowSize &&
       gameRate < successRate
     ) {
       loggingCallback();
     }
+    console.log("A",arrayResults);
 }
 
 
@@ -58,10 +59,10 @@ let gameRate = won / (won + lost)
 function makeGameTacker(windowSize, successRate, loggingCallback) {
   const results = {
     won: () => {
-      call(won,lost,windowSize,successRate,loggingCallback);
+      call(won,lost,"won","lost",windowSize,successRate,loggingCallback);
     },
     lost: () => {
-      call(lost,won,windowSize,successRate,loggingCallback);
+      call(lost,won,"lost","won",windowSize,successRate,loggingCallback);
     },
   }
   return results;

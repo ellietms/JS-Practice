@@ -36,14 +36,11 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
       if (arrayResults.length < windowSize) {
         won = won + 1;
       } 
-      else if (arrayResults.length === windowSize) {
-        if (arrayResults[0] === "won") {
-          won = won;
-          lost = lost;
-        } 
-        else if (arrayResults[0] === "lost") {
-          lost = lost - 1;
-          won = won + 1;
+      else if (arrayResults.length === windowSize)
+       {
+        if(arrayResults[0] === "lost"){
+        lost = lost - 1;
+        won = won + 1;
         }
         arrayResults.splice(0, 1);
       }
@@ -56,37 +53,27 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
       }
     },
     lost: () => {
-      if (arrayResults.length < windowSize) {
+      if (arrayResults.length < windowSize){
         lost = lost + 1;
-        arrayResults.push("lost");
-        if (
-          arrayResults.length === windowSize &&
-          won / (won + lost) < successRate
-        ) {
-          loggingCallback();
+      } 
+      else if (arrayResults.length === windowSize) 
+      {
+        if(arrayResults[0] === "won")
+        {
+        won = won - 1;
+        ost = lost + 1;
         }
-      } else if (arrayResults.length === windowSize) {
-        if (arrayResults[0] === "won") {
-          won = won - 1;
-          lost = lost + 1;
-          arrayResults.splice(0, 1);
-          arrayResults.push("lost");
-          if (won / (won + lost) < successRate) {
-            loggingCallback();
-          }
-        } else if (arrayResults[0] === "lost") {
-          lost = lost;
-          won = won;
-          arrayResults.splice(0, 1);
-          arrayResults.push("lost");
-          if (won / (won + lost) < successRate) {
-            loggingCallback();
-          }
-        }
+        arrayResults.splice(0, 1);
+      }
+      arrayResults.push("lost");
+      if (
+        arrayResults.length === windowSize &&
+        won / (won + lost) < successRate
+      ) {
+        loggingCallback();
       }
     },
-  };
-
+  }
   return results;
 }
 
@@ -95,6 +82,6 @@ tracker.won();
 tracker.lost();
 tracker.won();
 tracker.won();
-// tracker.won();
-// tracker.won();
-// tracker.lost();
+tracker.won();
+tracker.won();
+tracker.lost();

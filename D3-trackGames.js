@@ -30,7 +30,7 @@ const loggingCallback = () => console.log("You lost too many games");
 let arrayResults = [];
 let won = 0;
 let lost = 0;
-let gameRate = won / (won + lost)
+
 
  function call(x1,x2,x3,x4,windowSize,successRate,loggingCallback){
     if (arrayResults.length < windowSize) {
@@ -47,10 +47,14 @@ let gameRate = won / (won + lost)
     arrayResults.push(x3);
     if (
       arrayResults.length === windowSize &&
-      gameRate < successRate
+      x3 === "won" && x1 / (x1 + x2) < successRate
     ) {
       loggingCallback();
     }
+    else if(arrayResults.length === windowSize &&
+      x3 === "lost" && x2 / (x1 + x2) < successRate){
+        loggingCallback();
+      }
     console.log("A",arrayResults);
 }
 

@@ -31,7 +31,6 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
   let won = 0;
   let lost = 0;
   let arrayResults = [];
-  //   [1,2,2,won(3)]
   const results = {
     won: () => {
       if (arrayResults.length < windowSize) {
@@ -89,7 +88,6 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
           arrayResults.push("lost");
           if (won / (won + lost) < successRate) {
             loggingCallback();
-            console.log("3FinalLostAfterCallBack3", lost);
           }
         }
       }

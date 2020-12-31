@@ -57,10 +57,8 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
       if (arrayResults.length < windowSize) {
         if (string === "won") {
           won = won + 1;
-          arrayResults.push(string);
-        } else if (string === "lost") {
-          arrayResults.push(string);
-        }
+        } 
+        arrayResults.push(string);
       } else if (arrayResults.length === windowSize) {
         if (arrayResults[0] === "lost" && string === "won") {
           won = won + 1;

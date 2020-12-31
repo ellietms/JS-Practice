@@ -1,5 +1,28 @@
 
-Ask questions to make sure you understand the problem before you solve it
+--Summery : 
+
+1-ASK ASK ASK Questions(before solving , during solving , after solving)
+
+2 - 
+--Describe it in English(before you solve it)did you Understand the problem?
+--You need to break it down into simple pieces
+
+3-
+Try to solve it first , then :
+--after solving it : using functions as much as you could.
+--Solve the problem faster/better.
+
+--Ideas Of make your code better / faster :
+look at loops , nested loops , map , filters (anything goes through each word more than once);
+efficiency : How many times do I need to look at DATA --> EACH TIME I CALL THE FUNCTION?
+
+
+
+
+
+
+--General Description :
+ask questions to make sure you understand the problem before you solve it
 And also, while you’re solving too!
 Like, if you start solving, and then realise “Oh, should it be case sensitive?“, ask!
 (Another interview tip, as well as general problem solving tip: Break the problem into smaller problems)
@@ -13,7 +36,6 @@ General solution - This is a thing you should always be thinking -
 what’s a general way to solve the problem, not just what’s the way to solve the example I was given.
 (You need to fundamentally change your algorithm => You need to change what you’re doing.)
 
-
 solving problems : 
 Describe it in English
 You need to break it down into simple pieces
@@ -23,12 +45,18 @@ And remember: Your priorities are:
 Understand the problem
 Solve the problem in some way
 Solve the problem faster/better
-So a nested loop is fine, but if they ask you "can you make this faster / more efficient", and you have a nested loop, it's a good idea to see if you can get rid of the nested loop :slightly_smiling_face:
+
+
+--Better Code Description:
+
+So a nested loop is fine, but if they ask you "can you make this faster / more efficient", and you have a nested loop,
+it's a good idea to see if you can get rid of the nested loop
 But only after you've solved the problem already!
 It's more important to solve the problem, than to make it faster
  
 If someone asks you about efficiency in an interview, that's what you should be thinking about, by the way: 
 How many times do I need to look at data each time I call the function
+---efficiency in D3 : 
 Again, about efficiency: Right now when you call won or lost you only need to look at one element, 
  which is fast - 
  if you start using map or filter you're going to look at every element in the array, which is slower

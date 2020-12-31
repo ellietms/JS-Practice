@@ -34,6 +34,14 @@ const loggingCallback = () => console.log("You lost too many games");
 // You could access the won and lost variables from there, though, without copying them
 // One method can call another method
 
+
+// Again, about efficiency: Right now when you call won or lost you only need to look at one element, 
+//which is fast - 
+//if you start using map or filter you're going to look at every element in the array, which is slower
+
+//  If you're asked about efficiency, for your current code, you'd say something like "I need to do 3 comparisons, which are fast, remove one item from an array, and add an item to an array, all of which are fast" 
+// If you had a map, you'd say something like "I need to look through every element in the array"
+
 function makeGameTacker(windowSize, successRate, loggingCallback) {
   let arrayResults = [];
   let won = 0;

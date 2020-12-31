@@ -19,3 +19,66 @@ solving problems :
  You need to break it down into simple pieces
  using functions as much as you could.
  
+
+ Again, about efficiency: Right now when you call won or lost you only need to look at one element, 
+ which is fast - 
+ if you start using map or filter you're going to look at every element in the array, which is slower
+
+If you're asked about efficiency, for your current code, you'd say something like
+ "I need to do 3 comparisons, which are fast, remove one item from an array, and add an item to an array, all of which are fast" 
+If you had a map, you'd say something like "I need to look through every element in the array"
+the important thing is you can think about what the slowest thing is going to be in your code
+One loop is slower than no loops
+One loop inside another loop is slower than just one loop
+Because they do more work
+And if someone asks you to make your code more efficient, they generally mean: Can you get rid of a loop
+(And map and filter are loops)
+map and filter and for loops and while loops are all the same thing
+
+efficiency : get rid of map and filter and for loops and while loops are all the same thing.
+You need to think about what's slowest in your  code, and loops tend to be the slowest things.
+But more importantly, nested loops make things a lot slower
+So if you have a choice of going:
+for (...) {
+  for (...) {
+  }
+}
+or
+for (...) {
+}
+for (...) {
+}
+you almost always want to do the second one
+
+The difference with nested loops is they multiply work
+So without a nested loop you are doing size-of-array things
+With two not-nested loops, you're doing 2 * size-of-array things, which is more, but not much more
+With a nested loop, you're doing size-of-array things TIMES size-of-array-things which gets very big very quickly
+If you need a nested loop, that's fine
+
+
+And remember: Your priorities are:
+Understand the problem
+Solve the problem in some way
+Solve the problem faster/better
+So a nested loop is fine, but if they ask you "can you make this faster / more efficient", and you have a nested loop, it's a good idea to see if you can get rid of the nested loop :slightly_smiling_face:
+But only after you've solved the problem already!
+It's more important to solve the problem, than to make it faster
+
+See if there are other ways you can make the code faster, or talk to the interviewer - maybe they can help.
+
+Get rid of loops, make loops look at fewer elements, get rid of other work
+For example, when you were finding the longest common prefix
+Your nested loops could have been:
+for (let i = 0; i < words; i++) {
+  for (let j = 0; j < words; j++){
+or could have been:
+for (let i = 0; i < words; i++) {
+  for (let j = i + 1; j < words; j++){
+Both are nested loops, but the second one is faster than the first one, because the inner loop is smaller
+
+
+
+
+words :
+comparisons

@@ -27,48 +27,62 @@
 
 // I want for every time you call won or lost, for it to re-calculate the result based on your most recent games
 const loggingCallback = () => console.log("You lost too many games");
-let arrayResults = [];
-let won = 0;
-let lost = 0;
 
-
- function call(success,fail,successString,failString,windowSize,successRate,loggingCallback){
-    if (arrayResults.length < windowSize) {
-      success = success + 1;
-    } 
-    else if (arrayResults.length === windowSize)
-     {
-      if(arrayResults[0] === failString){
-      fail = fail - 1;
-      success = success + 1;
-      }
-      arrayResults.splice(0, 1);
-    }
-    arrayResults.push(successString);
-    if (
-      arrayResults.length === windowSize &&
-      successString === "won" && success / (success + fail) < successRate
-    ) {
-      loggingCallback();
-    }
-    else if(arrayResults.length === windowSize &&
-      successString === "lost" && fail / (success + fail) < successRate){
-        loggingCallback();
-      }
-    console.log("A",arrayResults);
-}
-
-
+// Improvement :
+// If you make it be a method on the results object,
+//I think you will avoid your number copying problem, and also only need one argument instead of those 4
+// You could access the won and lost variables from there, though, without copying them
+// One method can call another method
 
 function makeGameTacker(windowSize, successRate, loggingCallback) {
+  let arrayResults = [];
+  let won = 0;
+  let lost = 0;
   const results = {
+    // You could access the won and lost variables from there, though, without copying them
+    // One method can call another method
     won: () => {
-      call(won,lost,"won","lost",windowSize,successRate,loggingCallback);
+      results.call("won");
     },
     lost: () => {
-      call(lost,won,"lost","won",windowSize,successRate,loggingCallback);
+      results.call("lost");
     },
-  }
+    call: (string) => {
+      if (arrayResults.length < windowSize) {
+        if (string === "won") {
+          won = won + 1;
+        } 
+        else if (string === "lost") {
+          lost = lost + 1;
+        }
+        arrayResults.push(string);
+        console.log("arrayResultsAfterAdding", arrayResults);
+      }
+      else if (arrayResults.length === windowSize) {
+        if (arrayResults[0] === "lost" && string === "won") {
+          lost = lost - 1;
+          won = won + 1;
+        }
+        else if (arrayResults[0] === "won" && string === "lost") {
+          won = won - 1;
+          lost = lost + 1;
+        }
+        arrayResults.splice(0, 1);
+        arrayResults.push(string);
+      }
+      if (
+        arrayResults.length === windowSize &&
+        won / (won + lost) < successRate
+      ) {
+        console.log("----");
+        console.log("for this result of array", arrayResults);
+        loggingCallback();
+        console.log("your Rate is :" , won / (won + lost) , ":(");
+        console.log("successRate is :",successRate);
+        console.log("----")
+      }
+    },
+  };
   return results;
 }
 
@@ -79,4 +93,7 @@ tracker.won();
 tracker.won();
 tracker.won();
 tracker.won();
+tracker.lost();
+tracker.lost();
+tracker.lost();
 tracker.lost();

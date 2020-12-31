@@ -15,12 +15,21 @@ what’s a general way to solve the problem, not just what’s the way to solve 
 
 
 solving problems : 
- Describe it in English
- You need to break it down into simple pieces
- using functions as much as you could.
- 
+Describe it in English
+You need to break it down into simple pieces
+using functions as much as you could.
 
- Again, about efficiency: Right now when you call won or lost you only need to look at one element, 
+And remember: Your priorities are:
+Understand the problem
+Solve the problem in some way
+Solve the problem faster/better
+So a nested loop is fine, but if they ask you "can you make this faster / more efficient", and you have a nested loop, it's a good idea to see if you can get rid of the nested loop :slightly_smiling_face:
+But only after you've solved the problem already!
+It's more important to solve the problem, than to make it faster
+ 
+If someone asks you about efficiency in an interview, that's what you should be thinking about, by the way: 
+How many times do I need to look at data each time I call the function
+Again, about efficiency: Right now when you call won or lost you only need to look at one element, 
  which is fast - 
  if you start using map or filter you're going to look at every element in the array, which is slower
 
@@ -55,15 +64,6 @@ So without a nested loop you are doing size-of-array things
 With two not-nested loops, you're doing 2 * size-of-array things, which is more, but not much more
 With a nested loop, you're doing size-of-array things TIMES size-of-array-things which gets very big very quickly
 If you need a nested loop, that's fine
-
-
-And remember: Your priorities are:
-Understand the problem
-Solve the problem in some way
-Solve the problem faster/better
-So a nested loop is fine, but if they ask you "can you make this faster / more efficient", and you have a nested loop, it's a good idea to see if you can get rid of the nested loop :slightly_smiling_face:
-But only after you've solved the problem already!
-It's more important to solve the problem, than to make it faster
 
 See if there are other ways you can make the code faster, or talk to the interviewer - maybe they can help.
 

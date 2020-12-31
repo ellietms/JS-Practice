@@ -34,18 +34,16 @@ const loggingCallback = () => console.log("You lost too many games");
 // You could access the won and lost variables from there, though, without copying them
 // One method can call another method
 
-
-// Again, about efficiency: Right now when you call won or lost you only need to look at one element, 
-//which is fast - 
+// Again, about efficiency: Right now when you call won or lost you only need to look at one element,
+//which is fast -
 //if you start using map or filter you're going to look at every element in the array, which is slower
 
-//  If you're asked about efficiency, for your current code, you'd say something like "I need to do 3 comparisons, which are fast, remove one item from an array, and add an item to an array, all of which are fast" 
+//  If you're asked about efficiency, for your current code, you'd say something like "I need to do 3 comparisons, which are fast, remove one item from an array, and add an item to an array, all of which are fast"
 // If you had a map, you'd say something like "I need to look through every element in the array"
 
 function makeGameTacker(windowSize, successRate, loggingCallback) {
-  let arrayResults = [];
-  let won = 0;
-  let lost = 0;
+  let arrayResults = []; 
+  let won = 0; 
   const results = {
     // You could access the won and lost variables from there, though, without copying them
     // One method can call another method
@@ -59,34 +57,31 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
       if (arrayResults.length < windowSize) {
         if (string === "won") {
           won = won + 1;
+          arrayResults.push(string);
         } 
         else if (string === "lost") {
-          lost = lost + 1;
+          arrayResults.push(string);
         }
-        arrayResults.push(string);
-      }
+      } 
       else if (arrayResults.length === windowSize) {
         if (arrayResults[0] === "lost" && string === "won") {
-          lost = lost - 1;
-           won = won + 1;
-        }
-        else if (arrayResults[0] === "won" && string === "lost") {
+          won = won + 1;
+        } else if (arrayResults[0] === "won" && string === "lost") {
           won = won - 1;
-          lost = lost + 1;
         }
         arrayResults.splice(0, 1);
         arrayResults.push(string);
       }
       if (
         arrayResults.length === windowSize &&
-        won / (won + lost) < successRate
+        won / (windowSize) < successRate
       ) {
         console.log("----");
         console.log("for this result of array", arrayResults);
         loggingCallback();
-        console.log("your Rate is :" , won / (won + lost) , ":(");
-        console.log("successRate is :",successRate);
-        console.log("----")
+        console.log("your Rate is :", won / (windowSize), ":(");
+        console.log("successRate is :", successRate);
+        console.log("----");
       }
     },
   };

@@ -72,7 +72,7 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
       }
       if (
         arrayResults.length === windowSize &&
-        won / windowSize < successRate
+         (won/windowSize) <  successRate
       ) {
         console.log("----");
         console.log("for this result of array", arrayResults);

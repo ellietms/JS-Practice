@@ -59,10 +59,12 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
           won = won + 1;
         } 
         arrayResults.push(string);
-      } else if (arrayResults.length === windowSize) {
+      } 
+      else if (arrayResults.length === windowSize) {
         if (arrayResults[0] === "lost" && string === "won") {
           won = won + 1;
-        } else if (arrayResults[0] === "won" && string === "lost") {
+        } 
+        else if (arrayResults[0] === "won" && string === "lost") {
           won = won - 1;
         }
         arrayResults.splice(0, 1);
@@ -79,15 +81,22 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
         console.log("successRate is :", successRate);
         console.log("----");
       }
+      // if(arrayResults.length === windowSize &&
+      //   (won/windowSize) >  successRate){
+      //   console.log("----");
+      //   console.log("for this result of array", arrayResults);
+      //   console.log("WellDone -your Rate is :", won / windowSize, ":D");
+      //   console.log("successRate is :", successRate);
+      //   console.log("----");
+      //   }
     },
   };
   return results;
 }
 
-const tracker = makeGameTacker(4, 0.9, loggingCallback);
+const tracker = makeGameTacker(2, 0.9, loggingCallback);
 tracker.won();
 tracker.lost();
-tracker.won();
 tracker.won();
 tracker.won();
 tracker.won();

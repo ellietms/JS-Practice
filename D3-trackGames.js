@@ -56,12 +56,11 @@ function makeGameTacker(windowSize, successRate, loggingCallback) {
           lost = lost + 1;
         }
         arrayResults.push(string);
-        console.log("arrayResultsAfterAdding", arrayResults);
       }
       else if (arrayResults.length === windowSize) {
         if (arrayResults[0] === "lost" && string === "won") {
           lost = lost - 1;
-          won = won + 1;
+           won = won + 1;
         }
         else if (arrayResults[0] === "won" && string === "lost") {
           won = won - 1;
@@ -97,3 +96,4 @@ tracker.lost();
 tracker.lost();
 tracker.lost();
 tracker.lost();
+tracker.won();

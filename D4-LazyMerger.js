@@ -36,12 +36,12 @@ function lazyMerger(array) {
         if (array[i][j] !== undefined) {
           element = array[i][j];
           console.log("next element is : ===> ", "{", element, "}");
-          i = i + 1;
         } 
+        //when one element is  undefined what should I do?
         else {
           console.log("sorry it is not existed");
-          i = i + 1;
         }
+        i = i + 1;
       } 
       else if (i === array.length - 1) {
         if (array[i][j] !== undefined) {
@@ -56,10 +56,12 @@ function lazyMerger(array) {
             console.log("next element is : ===>", "{", element, "}");
           }
         }
-        if(array[i][j] === undefined){
+        //when we printed all elements with all possibilities and next one is undefined what I should do?
+        else if(array[i][j] === undefined){
             if(j === maxLength - 1){
-                console.log("NO")
+                console.log("NO MORE")
             }
+            // when the last element of the last nested array is undefined what I should do?
             else{
                 i = 0;
                 j = j + 1;

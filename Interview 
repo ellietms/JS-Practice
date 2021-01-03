@@ -16,7 +16,8 @@ Try to solve it first , then :
 look at loops , nested loops , map , filters (anything goes through each word more than once);
 efficiency : How many times do I need to look at DATA --> EACH TIME I CALL THE FUNCTION?
 
-
+4-
+Detail matters. If an interviewer asks you to return something, you should make sure to return it.
 
 
 

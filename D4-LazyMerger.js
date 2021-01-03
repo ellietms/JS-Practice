@@ -10,47 +10,51 @@ let example = [
   [6,7,8,9]
 ];
 
-//  8 => j = 2 (maxlength - 2) => element = 8 // i =0 , j = 3 
-
-
-// j + 1 = maxLength ; if (array[i].length !== maxlength) if(array[i].length === maxlength)
-//  j = 3 
-
 function lazyMerger(array) {
   let i = 0;
   let j = 0;
-
+  let element;
+  let lengths = example.map(eachArray => eachArray.length);
+  let maxLength = Math.max(...lengths);
   const result = {
     next: () => {
       if (i === 0 && j === 0) {
+          element = array[0][0];
          i = i + 1;
       } 
       else if (i !== array.length - 1) {
-        if (j <= array[i].length - 1) {
-            i =  i + 1;
-        }
-        else if(j > array[i].length - 1){
-          i = i + 1;
-        }
-        if(array[i][j] === undefined){
+        if(array[i].length >= j && array[i][j] !== undefined){  
+        element = array[i][j];
+        i  =  i + 1;  
+        } 
+        while(array[i][j] === undefined){
             i = i + 1;
+            element = array[i][j]
         }
+        
     }
       else if (i === array.length - 1) {
-            if(j <= array[i].length - 1 && array[i][j] !== undefined){
+            if(j < maxLength - 1){
+                element = array[i][j]
                 i = 0;
                 j = j + 1;
             }
-           }   
-     return array[i][j];
+            else if(j === maxLength - 1){
+                element = array[i][j];
+                j = j + 1
+            }
+            if(j === maxLength){
+                element = undefined;
+            }
+           }
+           
+               return element;
     },
   };
   return result;
 }
 
 const obj = lazyMerger(example);
-console.log(obj.next());
-console.log(obj.next());
 console.log(obj.next());
 console.log(obj.next());
 console.log(obj.next());

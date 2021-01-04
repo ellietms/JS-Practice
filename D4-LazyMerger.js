@@ -14,7 +14,6 @@ let example = [
   [],
   ["a", "b", "c"],
   [6,7,8,9],
-  [10,11,12],
 ];
 
 function lazyMerger(array) {
@@ -23,7 +22,6 @@ function lazyMerger(array) {
   let element;
   const result = {
     next: () => {
-      // console.log("i is " , i , "j is" , j)
         if(i === 0 && j === 0){
           if(array[0][0] !== undefined){
           element = array[0][0];
@@ -51,22 +49,12 @@ function lazyMerger(array) {
           i = i + 1;
           }
         }
-        console.log("element =" , element);
-        // console.log("i is " , i , "j is" , j)
-        //  return element;
+          return element;
     }
 }
 return result
 }
 const obj = lazyMerger(example);
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
 console.log(obj.next());
 console.log(obj.next());
 console.log(obj.next());

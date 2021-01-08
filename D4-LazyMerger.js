@@ -18,39 +18,23 @@ let example = [
   [6,7,8,9]
 ];
 function lazyMerger(array) {
-  let i =0 ;
-  let j = 0;
+  let perviousReturnedArrayIndex = -1;
+  let perviousReturnedArraySecondIndex = -1;
   let element;
   const result = {
     next: () => {
-      while(array[i][j] !== undefined){
-        if(i < array.length - 1){
-          if(i === 0 && j === 0){
-            element = array[0][0];
-            i = i + 1;
-          }
-          else{
-            element = array[i][j];
-            i = i + 1;
-            console.log("E",element);
-          }
-        }
-        else if(i === array.length - 1){
-          element = array[i][j];
-          i = 0;
-          j = j + 1;
-        }
-        else if(i > array.length - 1){
-          element = undefined;
-        }
-
+      perviousReturnedArrayIndex = perviousReturnedArrayIndex + 1;
+      perviousReturnedArraySecondIndex = perviousReturnedArraySecondIndex + 1;
+      while(array[perviousReturnedArrayIndex][perviousReturnedArraySecondIndex] !== undefined){
+        element = array[perviousReturnedArrayIndex][perviousReturnedArraySecondIndex];
+        perviousReturnedArrayIndex = perviousReturnedArrayIndex + 1;
+       if(array[perviousReturnedArrayIndex][perviousReturnedArraySecondIndex] === undefined){
+        perviousReturnedArraySecondIndex = perviousReturnedArraySecondIndex + 1;
       }
-      // while(array[i][j] === undefined && i <= array.length - 1){
-      //   i = i + 1;
-      // }
+      }
       return element;
-    }
 }
+  }
 return result
 }
 const obj = lazyMerger(example);

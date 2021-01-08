@@ -28,9 +28,9 @@ function lazyMerger(array) {
       while(array[perviousReturnedArrayIndex][perviousReturnedArraySecondIndex] !== undefined){
         element = array[perviousReturnedArrayIndex][perviousReturnedArraySecondIndex];
         perviousReturnedArrayIndex = perviousReturnedArrayIndex + 1;
-       if(array[perviousReturnedArrayIndex][perviousReturnedArraySecondIndex] === undefined){
-        perviousReturnedArraySecondIndex = perviousReturnedArraySecondIndex + 1;
       }
+      if(array[perviousReturnedArrayIndex][perviousReturnedArraySecondIndex] === undefined){
+        perviousReturnedArrayIndex = perviousReturnedArrayIndex + 1;
       }
       return element;
 }

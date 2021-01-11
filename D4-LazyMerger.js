@@ -23,9 +23,7 @@ function lazyMerger(array) {
   let element;
   const result = {
     next: () => {
-      console.log("SECONDINDEX",secondIndex)
       perviousReturnedArrayIndex = perviousReturnedArrayIndex + 1;
-      console.log("INDEX",perviousReturnedArrayIndex);
       while(array[perviousReturnedArrayIndex][secondIndex] === undefined)
       {
         perviousReturnedArrayIndex = perviousReturnedArrayIndex + 1;

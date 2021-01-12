@@ -22,12 +22,14 @@ function lazyMerger(array) {
   let rowIndex = 0;
   let columnIndex = 0;
   let element;
+  let count = 0;
   let amountOfElements = length(array);
   const result = {
     next: () => {
-      while (columnIndex * (array.length - 1) <= amountOfElements) {
+      while (count < amountOfElements) {
         if(array[rowIndex][columnIndex] !== undefined ){
           element = array[rowIndex][columnIndex];
+          count++;
           rowIndex = (rowIndex + 1) % array.length;
           if(rowIndex === 0){
             columnIndex++;

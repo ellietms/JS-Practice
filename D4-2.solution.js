@@ -10,6 +10,7 @@ let example = [
 function lazyMerger3(arr) {
     let i = 0;
     let j = 0;
+    let element;
     return {
         next: () => {
             let checked = 0;
@@ -20,12 +21,23 @@ function lazyMerger3(arr) {
                     if (i === 0) {
                         j++;
                     }
+                    console.log("------------------------------------")
+                    console.log("i = ",i);
+                    console.log("j =",j);
+                    console.log("element",element);
+                    console.log("checked",checked);
+                    console.log("-----------------------------------")
                     return element;
-                } else {
+                } 
+                else {
                     i = (i + 1) % arr.length;
                     if (i === 0) {
                         j++;
                     }
+                    console.log("-----------IN ELSE---------")
+                    console.log("element",element);
+                    console.log("checked",checked);
+                    console.log("-------Else Finished-------")
                 }
                 checked++;
             }
@@ -33,15 +45,26 @@ function lazyMerger3(arr) {
         }
     };
 }
-const obj = lazyMerger(example);
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
-console.log(obj.next());
+const obj = lazyMerger3(example);
+(obj.next());
+(obj.next());
+(obj.next());
+// (obj.next());
+// (obj.next());
+// (obj.next());
+// (obj.next());
+// (obj.next());
+// (obj.next());
+// (obj.next());
+// (obj.next());
+// console.log(obj.next());
+// console.log(obj.next());
+// console.log(obj.next());
+// console.log(obj.next());
+// console.log(obj.next());
+// console.log(obj.next());
+// console.log(obj.next());
+// console.log(obj.next());
+// console.log(obj.next());
+// console.log(obj.next());
+// console.log(obj.next());

@@ -18,21 +18,20 @@ let example = [
   [6,7,8,9]
 ];
 function lazyMerger(array) {
-  let perviousReturnedArrayIndex = -1;
+  let firstIndex = 0;
   let secondIndex = 0;
   let element;
   const result = {
     next: () => {
-      perviousReturnedArrayIndex = perviousReturnedArrayIndex + 1;
-      while(array[perviousReturnedArrayIndex][secondIndex] === undefined)
+      while(array[firstIndex][secondIndex] === undefined)
       {
-        perviousReturnedArrayIndex = perviousReturnedArrayIndex + 1;
+        firstIndex = firstIndex + 1;
       }
-      if(array[perviousReturnedArrayIndex][secondIndex] !== undefined){
-        element = array[perviousReturnedArrayIndex][secondIndex];
+      if(array[firstIndex][secondIndex] !== undefined){
+        element = array[firstIndex][secondIndex];
       }
-      if(perviousReturnedArrayIndex === array.length - 1){
-        perviousReturnedArrayIndex = -1;
+      if(firstIndex === array.length - 1){
+        firstIndex = -1;
         secondIndex = secondIndex + 1;
       }
       return element;

@@ -1,3 +1,5 @@
+// Doesn't modify the inner arrays, but does modify the outer array:
+
 let example = [ 
     [1, 2, 3],
     [],
@@ -5,66 +7,45 @@ let example = [
     [6,7,8,9]
   ];
 
-
-
-function lazyMerger3(arr) {
+  function lazyMerger2(arr) {
     let i = 0;
     let j = 0;
-    let element;
     return {
         next: () => {
-            let checked = 0;
-            while (checked < arr.length) {
+            while (arr.length !== 0) {
+                console.log("array",arr);
+                console.log("i = ",i);
+                console.log("j =" , j);
                 if (arr[i].length > j) {
                     const element = arr[i][j];
                     i = (i + 1) % arr.length;
                     if (i === 0) {
                         j++;
                     }
-                    console.log("------------------------------------")
-                    console.log("i = ",i);
-                    console.log("j =",j);
-                    console.log("element",element);
-                    console.log("checked",checked);
-                    console.log("-----------------------------------")
                     return element;
-                } 
-                else {
-                    i = (i + 1) % arr.length;
-                    if (i === 0) {
+                } else {
+                    arr.splice(i, 1);
+                    if (i === arr.length) {
+                        i = 0;
                         j++;
                     }
-                    console.log("-----------IN ELSE---------")
-                    console.log("element",element);
-                    console.log("checked",checked);
-                    console.log("-------Else Finished-------")
                 }
-                checked++;
             }
             return undefined;
         }
     };
 }
-const obj = lazyMerger3(example);
-(obj.next());
-(obj.next());
-(obj.next());
-// (obj.next());
-// (obj.next());
-// (obj.next());
-// (obj.next());
-// (obj.next());
-// (obj.next());
-// (obj.next());
-// (obj.next());
-// console.log(obj.next());
-// console.log(obj.next());
-// console.log(obj.next());
-// console.log(obj.next());
-// console.log(obj.next());
-// console.log(obj.next());
-// console.log(obj.next());
-// console.log(obj.next());
-// console.log(obj.next());
-// console.log(obj.next());
-// console.log(obj.next());
+
+
+const obj = lazyMerger2(example);
+console.log(obj.next());
+console.log(obj.next());
+console.log(obj.next());
+console.log(obj.next());
+console.log(obj.next());
+console.log(obj.next());
+console.log(obj.next());
+console.log(obj.next());
+console.log(obj.next());
+console.log(obj.next());
+console.log(obj.next());

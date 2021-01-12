@@ -9,15 +9,23 @@
 //  you always look either one or two elements forward, rather than keeping looking until you find one
 // So... Work out the general way of finding the next element, and write that, maybe as a method of its own
 
-let example = [[1, 2, 3], [], ["a", "b", "c"], [6, 7, 8, 9]];
+// Can you write a function which takes an array of arrays as a parameter, and returns how many elements it contains?
+
+
+function length(array){
+  let totalLength = 0;
+  array.map(eachArray => totalLength += eachArray.length);
+  return (totalLength)
+}
+
 function lazyMerger(array) {
   let rowIndex = 0;
   let columnIndex = 0;
   let element;
+  let amountOfElements = length(array);
   const result = {
     next: () => {
-      let checked = 0;
-      while (checked <= columnIndex) {
+      while (columnIndex * (array.length - 1) <= amountOfElements) {
         if(array[rowIndex][columnIndex] !== undefined ){
           element = array[rowIndex][columnIndex];
           rowIndex = (rowIndex + 1) % array.length;
@@ -34,13 +42,13 @@ function lazyMerger(array) {
             }
           }
         }
-        checked++;
       }
       return undefined;
     }
 }
   return result;
 }
+let example = [[1, 2, 3], [], ["a", "b", "c"], [6, 7, 8, 9]];
 const obj = lazyMerger(example);
 console.log(obj.next());
 console.log(obj.next());

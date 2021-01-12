@@ -1,5 +1,4 @@
-// Doesn't modify the inner arrays, but does modify the outer array:
-
+// Doesn't modify any arrays, just counts:
 let example = [ 
     [1, 2, 3],
     [],
@@ -7,15 +6,16 @@ let example = [
     [6,7,8,9]
   ];
 
-  function lazyMerger2(arr) {
+function lazyMerger3(arr) {
     let i = 0;
     let j = 0;
+    let element;
     return {
         next: () => {
-            while (arr.length !== 0) {
-                console.log("array",arr);
-                console.log("i = ",i);
-                console.log("j =" , j);
+            let checked = 0;
+            while (checked < arr.length) {
+                console.log("i",i);
+                console.log("j",j);
                 if (arr[i].length > j) {
                     const element = arr[i][j];
                     i = (i + 1) % arr.length;
@@ -23,22 +23,21 @@ let example = [
                         j++;
                     }
                     return element;
-                } 
-                else {
-                    arr.splice(i, 1);
-                    if (i === arr.length) {
-                        i = 0;
+                } else {
+                    i = (i + 1) % arr.length;
+                    if (i === 0) {
                         j++;
                     }
                 }
+                checked++;
+                console.log("checked",checked);
+                console.log("element",element);
             }
             return undefined;
         }
     };
 }
-
-
-const obj = lazyMerger2(example);
+const obj = lazyMerger3(example);
 console.log(obj.next());
 console.log(obj.next());
 console.log(obj.next());

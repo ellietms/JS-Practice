@@ -26,7 +26,10 @@ function lazyMerger(array) {
   let amountOfElements = length(array);
   const result = {
     next: () => {
-      while (count < amountOfElements) {
+      if(count >= amountOfElements){
+        return undefined;
+      }
+      while (count < amountOfElements){
         if(array[rowIndex][columnIndex] !== undefined ){
           element = array[rowIndex][columnIndex];
           count++;
@@ -45,7 +48,6 @@ function lazyMerger(array) {
           }
         }
       }
-      return undefined;
     }
 }
   return result;

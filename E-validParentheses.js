@@ -16,21 +16,28 @@ function validParentheses(str){
         else if(arrayOfString[i] === "]" && stack.length !== 0 && stack[stack.length - 1] === "["){
             stack.pop();
         }
+        else if(arrayOfString[i] === " " && stack.length !== 0 ){
+            return (false);
+        }
         else{
-            console.log(false);
-            console.log("----");
+            return (false);
         }
     }
     if(stack.length === 0){
-        console.log(true);
-        console.log("----");
+        return (true);
     }
 }
 
 
- validParentheses("()");
- validParentheses("(){}[]");
- validParentheses("(}");
- validParentheses("([)]");
- validParentheses("{[]}");
- validParentheses("[]{)");
+ console.log(validParentheses("()"));
+ console.log(validParentheses("(){}[]"));
+ console.log(validParentheses("(}"));
+ console.log(validParentheses("([)]"));
+ console.log(validParentheses("{[]}"));
+ console.log(validParentheses("[]{)"));
+ console.log("---() section---")
+ console.log(validParentheses("(())"));
+ console.log(validParentheses("()"));
+ console.log(validParentheses("()()"));
+ console.log(validParentheses("()("));
+ console.log(validParentheses("(()"));

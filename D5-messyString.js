@@ -2,29 +2,24 @@
 // The new string should be the same as the old one, but all of the upper case letters first,
 // then all of the lower case letters, in the order that they occurred in the original string
 
-let example ="Hello Ellie! How are you today? I like CHEESE"
-// HEHICHEESEello llie! ow are you today?  like 
+let example = "Hello Ellie! How are you today? I like CHEESE";
+// HEHICHEESEello llie! ow are you today?  like
 
-
-function messyString(string){
-    let index = 0;
-    let count = 0;
-    let allLettersArray = string.split("");
-    let allUpperCases = [];
-    while(index !== string.length){
-       if(string.charCodeAt(index) >= 65 && string.charCodeAt(index) <= 90){
-            allUpperCases.push(string[index]);
-            string.slice(index,index+1);
-            allLettersArray.splice(index - count,1);
-            count++;
-        }
-       index = index + 1;
+function messyString(string) {
+  let index = 0;
+  let firstString = string;
+  let allUpperCases = "";
+  while (index !== firstString.length) {
+    if (
+      firstString.charCodeAt(index) >= 65 &&
+      firstString.charCodeAt(index) <= 90
+    ) {
+      allUpperCases = allUpperCases.concat(firstString[index]);
+      string = string.replace(firstString[index], "");
     }
-    let messyString = allUpperCases.join("");
-    allLettersArray.splice(0,0,messyString);
-    let finalString = allLettersArray.join("");
-    return finalString;
-    
+    index = index + 1;
+  }
+  return allUpperCases.concat(string);
 }
 
 console.log(messyString(example));

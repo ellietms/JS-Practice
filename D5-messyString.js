@@ -8,21 +8,23 @@ let example ="Hello Ellie! How are you today? I like CHEESE"
 
 function messyString(string){
     let i = 0;
+    let count = 0;
     let allLettersArray = string.split("");
     let allUpperCases = [];
     while(i !== string.length){
-        if(string.charCodeAt(i) >= 65 && string.charCodeAt(i) <= 90){
-            allUpperCases.push(string.slice(i,i+1));
-            string = string.slice(i+1);
-            console.log("New String",string)
-            i = 0;
+       if(string.charCodeAt(i) >= 65 && string.charCodeAt(i) <= 90){
+            allUpperCases.push(string[i]);
+            string.slice(i,i+1);
+            allLettersArray.splice(i - count,1);
+            count++;
         }
-        else{
-            i = i + 1;
-        }
+       i = i + 1;
     }
-    console.log("allUpperCases",allUpperCases);
-    console.log("allLettersArray",allLettersArray);
+    let messyString = allUpperCases.join("");
+    allLettersArray.splice(0,0,messyString);
+    let finalString = allLettersArray.join("");
+    return finalString;
+    
 }
 
-messyString(example);
+console.log(messyString(example));

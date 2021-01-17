@@ -7,18 +7,18 @@ let example ="Hello Ellie! How are you today? I like CHEESE"
 
 
 function messyString(string){
-    let i = 0;
+    let index = 0;
     let count = 0;
     let allLettersArray = string.split("");
     let allUpperCases = [];
-    while(i !== string.length){
-       if(string.charCodeAt(i) >= 65 && string.charCodeAt(i) <= 90){
-            allUpperCases.push(string[i]);
-            string.slice(i,i+1);
-            allLettersArray.splice(i - count,1);
+    while(index !== string.length){
+       if(string.charCodeAt(index) >= 65 && string.charCodeAt(index) <= 90){
+            allUpperCases.push(string[index]);
+            string.slice(index,index+1);
+            allLettersArray.splice(index - count,1);
             count++;
         }
-       i = i + 1;
+       index = index + 1;
     }
     let messyString = allUpperCases.join("");
     allLettersArray.splice(0,0,messyString);

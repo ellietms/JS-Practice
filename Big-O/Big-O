@@ -1,0 +1,8 @@
+Recap Big-O : 
+
+it allows us to talk formally about how the runtime of an algorithm grows as the inputs grow
+
+1.To analyze the performance of an algorithm,We use Big O notation
+2.Big o notation can give us a high level of understanding of the time or space complexity of an algorithm
+3.Big o notation does not care about precision, only about general trends (linear?quadratic?constant?)
+4.space complexity or time complexity depends on the algorithm,not the hardware used for running the algorithm

@@ -30,3 +30,4 @@ console.log(sum(200));
 console.log(sumBetter(200));
 // let time4 = performance.now();
 // console.log(`time Better Solution ${time4 - time3}`);
+

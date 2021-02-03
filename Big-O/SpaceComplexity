@@ -1,0 +1,10 @@
+Space complexity (auxiliary space complexity): 
+
+(space required by the algorithms not including space taken up by the inputs)
+
+
+1.Most primitives (booleans,undefined,null,numbers) are constant Space.
+2.strings require O(n) space (where n is the string length).
+3.Reference types are generally O(n),where n is the length (for arrays) or the number of keys(for objects).
+
+

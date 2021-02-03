@@ -1,0 +1,9 @@
+Big O shorthands : 
+
+1.arithmetic operations (* , / , + , - ,... ) are constant
+2.variable assignments are constant
+3.accessing elements in an array (using the index ) or objects (using keys) are constant.
+4.in a loop , the complexity is the length of the loop times the complexity of whatever happens inisde of the loop
+
+
+

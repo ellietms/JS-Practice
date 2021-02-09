@@ -3,34 +3,58 @@ let storage = [];
 
 function store(rangesOfIntegers, colour) {
   if (colour === "YELLOW") {
-    storage.push([rangesOfIntegers, colour, 1]);
+    storage.push(({
+      lowerBound: Number(rangesOfIntegers.slice(0, 2)),
+      upperBound: Number(rangesOfIntegers.slice(3, 5)),
+      colour: colour,
+      priority: 1,
+    }));
   } else if (colour === "RED") {
-    storage.push([rangesOfIntegers, colour, 2]);
+    storage.push({
+      lowerBound: Number(rangesOfIntegers.slice(0, 2)),
+      upperBound: Number(rangesOfIntegers.slice(3, 5)),
+      colour: colour,
+      priority: 2,
+    });
   } else if (colour === "GREEN") {
-    storage.push([rangesOfIntegers, colour, 3]);
+    storage.push({
+      lowerBound: Number(rangesOfIntegers.slice(0, 2)),
+      upperBound: Number(rangesOfIntegers.slice(3, 5)),
+      colour: colour,
+      priority: 3,
+    });
   } else if (colour === "BLUE") {
-    storage.push([rangesOfIntegers, colour, 4]);
+    storage.push({
+      lowerBound: Number(rangesOfIntegers.slice(0, 2)),
+      upperBound: Number(rangesOfIntegers.slice(3, 5)),
+      colour: colour,
+      priority: 4,
+    });
   } else if (colour === "GREY") {
-    storage.push([rangesOfIntegers, colour, 5]);
+    storage.push({
+      lowerBound: Number(rangesOfIntegers.slice(0, 2)),
+      upperBound: Number(rangesOfIntegers.slice(3, 5)),
+      colour: colour,
+      priority: 5,
+    });
   }
 }
 
 function get(stringShowsInteger) {
   let filteredStorageForSpecificInteger = storage.filter(
-    (eachArray) =>
-      Number(eachArray[0].slice(0, 2)) <= Number(stringShowsInteger) &&
-      Number(stringShowsInteger) <= Number(eachArray[0].slice(3, 5))
+    (eachObject) =>
+      eachObject.lowerBound <= Number(stringShowsInteger) &&
+      Number(stringShowsInteger) <= eachObject.upperBound
   );
-  if (filteredStorageForSpecificInteger.length > 1) {
-    let sortedByHighPriorityColours = filteredStorageForSpecificInteger.sort(
-      (firstArray, secondArray) => firstArray[2] - secondArray[2]
+   if (filteredStorageForSpecificInteger.length >= 1) {
+    filteredStorageForSpecificInteger.sort(
+      (firstObject, secondObject) => firstObject.priority - secondObject.priority
     );
-    return sortedByHighPriorityColours[0][1];
-  } else if (filteredStorageForSpecificInteger.length === 1) {
-    return filteredStorageForSpecificInteger[0][1];
-  } else if (filteredStorageForSpecificInteger.length === 0) {
-    return "GRAY";
-  }
+    return filteredStorageForSpecificInteger[0].colour
+   }
+   else if (filteredStorageForSpecificInteger.length === 0) {
+     return "GRAY";
+   }
 }
 
 // Extra Idea :
@@ -43,9 +67,9 @@ console.log("Apple Example Results :");
 store("34-78", "RED");
 store("31-41", "YELLOW");
 store("64-98", "GREEN");
-console.log(get("31"));
-console.log(get("39"));
-console.log(get("50"));
+ console.log(get("31"));
+ console.log(get("39"));
+ console.log(get("50"));
 console.log(get("68"));
 console.log(get("91"));
 console.log(get("99"));

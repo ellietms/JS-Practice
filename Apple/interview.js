@@ -3,41 +3,26 @@ let storage = [];
 
 function store(rangesOfIntegers, colour) {
   if (colour === "YELLOW") {
-    storage.push(({
-      lowerBound: Number(rangesOfIntegers.slice(0, 2)),
-      upperBound: Number(rangesOfIntegers.slice(3, 5)),
-      colour: colour,
-      priority: 1,
-    }));
-  } else if (colour === "RED") {
-    storage.push({
-      lowerBound: Number(rangesOfIntegers.slice(0, 2)),
-      upperBound: Number(rangesOfIntegers.slice(3, 5)),
-      colour: colour,
-      priority: 2,
-    });
-  } else if (colour === "GREEN") {
-    storage.push({
-      lowerBound: Number(rangesOfIntegers.slice(0, 2)),
-      upperBound: Number(rangesOfIntegers.slice(3, 5)),
-      colour: colour,
-      priority: 3,
-    });
-  } else if (colour === "BLUE") {
-    storage.push({
-      lowerBound: Number(rangesOfIntegers.slice(0, 2)),
-      upperBound: Number(rangesOfIntegers.slice(3, 5)),
-      colour: colour,
-      priority: 4,
-    });
-  } else if (colour === "GREY") {
-    storage.push({
-      lowerBound: Number(rangesOfIntegers.slice(0, 2)),
-      upperBound: Number(rangesOfIntegers.slice(3, 5)),
-      colour: colour,
-      priority: 5,
-    });
+      priority = 1;
+   }
+  else if(colour === "RED"){
+      priority = 2;
+   }
+  else if (colour === "GREEN"){
+    priority = 3;
+  } 
+  else if (colour === "BLUE"){
+    priority = 4;
+  } 
+  else if (colour === "GREY"){
+    priority = 5;
   }
+  storage.push({
+    lowerBound: Number(rangesOfIntegers.slice(0, 2)),
+    upperBound: Number(rangesOfIntegers.slice(3, 5)),
+    colour: colour,
+    priority: priority
+  });
 }
 
 function get(stringShowsInteger) {

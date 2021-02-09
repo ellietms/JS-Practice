@@ -1,5 +1,6 @@
 // first solution
 let storage = [];
+const ranges = {};
 const colourPriorities = {
   YELLOW: 1,
   RED: 2,
@@ -8,6 +9,7 @@ const colourPriorities = {
   GREY: 5,
 };
 
+
 function store(rangesOfIntegers, colour) {
   storage.push({
     lowerBound: Number(rangesOfIntegers.slice(0, 2)),
@@ -15,23 +17,17 @@ function store(rangesOfIntegers, colour) {
     colour: colour,
     priority: colourPriorities.colour,
   });
+  ranges[`${colour}`] = rangesOfIntegers
 }
 
 function get(stringShowsInteger) {
-  let filteredStorageForSpecificInteger = storage.filter(
-    (eachObject) =>
-      eachObject.lowerBound <= Number(stringShowsInteger) &&
-      Number(stringShowsInteger) <= eachObject.upperBound
-  );
-  if (filteredStorageForSpecificInteger.length >= 1) {
-    filteredStorageForSpecificInteger.sort(
-      (firstObject, secondObject) =>
-        firstObject.priority - secondObject.priority
-    );
-    return filteredStorageForSpecificInteger[0].colour;
-  } else if (filteredStorageForSpecificInteger.length === 0) {
-    return "GRAY";
-  }
+  let excistingColours = Object.keys(ranges);
+   excistingColours.map(eachColour => {
+    if(Number(ranges.eachColour.slice(0, 2)) <= Number(stringShowsInteger) && Number(stringShowsInteger) <= Number(ranges.eachColour.slice(3, 5))){
+      return eachColour
+    }
+  })
+  return "GRAY";
 }
 
 // Extra Idea :
@@ -53,6 +49,7 @@ console.log(get("99"));
 store("90-99", "BLUE");
 console.log(get("91"));
 console.log(get("99"));
+console.log(ranges);
 console.log("----------------------------");
 
 // My Examples :

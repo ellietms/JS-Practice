@@ -1,0 +1,28 @@
+for avoid using nested loops and having O(N^2) time complexity
+
+In This pattern we use objects to collect values/frequencies of values.
+with this pattern we will have O(N) time complexity.
+
+we can use two different for loops for objects :
+( for..in and for..of ) :
+ 1) for...in :
+  with for ... in , we check keys of objects
+ example : 
+ for(let key in object){
+
+ }
+2) for...of : 
+  with for ... of ,we check value of each keys. 
+example : 
+for(let val of object){
+
+}
+
+==> Exceptions : 
+arrays are one kind of objects. 
+we can use for..in and for..of for arrays.
+with for...in , it will show us the index of the arrays
+with for ...of , it will show us those visible values.
+
+
+Check Problem solving Udemy ==> 28.

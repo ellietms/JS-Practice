@@ -1,0 +1,27 @@
+-- example of having an array ([1,1,1,2,2,3,3,3,3,4]) :
+
+we have two pointers , one of them is static until 
+the second pointer's value is not equal to the value of first pointer.
+
+when the second pointer value is not equal to the value of first pointer, 
+we move the first pointer(add one to it), and set the value of first pointer to the value of current second pointer
+after these changes we move on (for second pointer we always move it to the next element until we find the different value)
+
+===========
+example :
+
+function countUniqueValues(array){
+  if(array.length === 0) return 0;
+  let index = 0;
+  for(let secondIndex = 1 ; secondIndex <= array.length ; secondIndex++){
+   if( array[index] !==  array[secondIndex]){
+    index = index + 1;   
+    array[index] = array[secondIndex];
+   }
+  }
+  return index;
+}
+
+
+
+

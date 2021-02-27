@@ -19,7 +19,7 @@ for(let val of object){
 }
 
 ==> Exceptions : 
-arrays are one kind of objects. 
+for arrays and strings are one kind of objects. 
 we can use for..in and for..of for arrays.
 with for...in , it will show us the index of the arrays
 with for ...of , it will show us those visible values.

@@ -1,6 +1,6 @@
 -- we learn it with the example of having an array ([1,1,1,2,2,3,3,3,3,4]) :
 
-we have two pointers , one of them is static until 
+we have two pointers , one of them is steady until 
 the second pointer's value is not equal to the value of first pointer.
 
 when the second pointer value is not equal to the value of first pointer, 

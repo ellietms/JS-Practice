@@ -1,0 +1,33 @@
+a function which will call itself.
+
+it will have :
+    Base case (End point);
+
+
+Questions you should ask yourself :
+Can you spot the base case?
+do you notice the different input?
+what would happen if we did not return?
+
+Examples :
+
+function countDown(number){
+    if(number <= 0){
+        console.log("Done")
+        return;
+    }
+    console.log(number);
+    number--;
+    countDown(number)
+}
+
+
+function sumRange(number){
+    if(number === 1){
+        return 1;
+    }
+    return num + sumRange(num - 1);
+}
+
+sumRange(3) =>  (return 3 + (sumRange(2) => return 2 + (sumRange(1) => return 1 ))) => return 6
+sumRange(4) => (return 4 + sumRange(3)) => 

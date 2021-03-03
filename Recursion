@@ -1,7 +1,9 @@
 a function which will call itself.
 
-it will have :
+your function should have:
     Base case (End point);
+    return right thing(do not forget return);(for poping up from the stack we need return);
+    be Careful about => stack overflow(error : the maximum call stack size exceeded) your recursion is not stopping! :-P 
 
 
 Questions you should ask yourself :

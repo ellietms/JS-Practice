@@ -1,18 +1,20 @@
 a function which will call itself.
 
-your function should have:
+    your function should have:
     Base case (End point);
     return right thing(do not forget return);(for poping up from the stack we need return);
     be Careful about => stack overflow(error : the maximum call stack size exceeded) your recursion is not stopping! :-P 
 
 
-Questions you should ask yourself :
-Can you spot the base case?
-do you notice the different input?
-what would happen if we did not return?
+    Questions you should ask yourself :
+    Can you spot the base case?
+    do you notice the different input?
+    what would happen if we did not return?
 
-Examples :
 
+
+
+simple Examples :
 function countDown(number){
     if(number <= 0){
         console.log("Done")

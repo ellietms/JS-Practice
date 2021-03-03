@@ -1,0 +1,15 @@
+when we want to execute  arrays or multiple inputs.
+
+function outer(array){
+    
+    let outerScopeVariable = [];
+
+    function helper(helperInput){
+        modify outerScopeVariable
+        helper(helperInput--);
+    }
+    helper(array);
+    return outerScopeVariable;
+}
+
+

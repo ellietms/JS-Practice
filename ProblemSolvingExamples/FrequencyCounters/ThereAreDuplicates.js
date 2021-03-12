@@ -1,5 +1,3 @@
-
-
 function areThereDuplicates(...arguments){
     let allArguments = [...arguments]
     let result = {};
@@ -11,8 +9,7 @@ function areThereDuplicates(...arguments){
             return true;
         }
     }
-    return false;
-    
+    return false;   
 }
 
 

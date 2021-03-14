@@ -1,0 +1,6 @@
+we take a large set of data usually an array or string.
+when we are looking for a value, usually we start from left and check each value inside of the array,
+with this pattern we are going to divide the data to small pieces of data,
+and then doing something to EACH smaller piece to determine where to go next.
+(The array has to be SORTED).
+

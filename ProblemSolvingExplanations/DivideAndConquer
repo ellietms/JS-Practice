@@ -4,3 +4,23 @@ with this pattern we are going to divide the data to small pieces of data,
 and then doing something to EACH smaller piece to determine where to go next.
 (The array has to be SORTED).
 
+
+function search(array,targetValue){
+let index-min = 0;
+let index-max = array.length - 1;
+
+while(index-min <= index-max){
+    let index-MiddleOfEachPiece = Math.floor((index-min + index-max)/2);
+    if(array[index-MiddleOfEachPiece] < targetValue){
+        index-min = index-MiddleOfEachPiece + 1;
+    }
+    else if(array[index-MiddleOfEachPiece] > targetValue){
+        index-max = index-MiddleOfEachPiece - 1;
+    }
+    else{
+        return index-MiddleOfEachPiece;
+    }
+
+}
+    return -1;
+}

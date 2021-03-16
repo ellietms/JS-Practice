@@ -1,0 +1,15 @@
+
+this pattern is useful when we have (array or string),and we want : 
+    1*to find the subset of that array or string.
+    2*the subset is continuous in some way.
+
+
+solving it:
+we make a window which can either be an subArray or number or string from one position to another position.
+and we move that window depending on the condition window either increase or closes(and a new window created)
+it does not have to be sorted.
+
+examples :
+
+
+

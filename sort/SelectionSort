@@ -1,0 +1,6 @@
+Selection sort is better than bubble sort.
+in the selection sort , we are going through the array and we want to find the smallest value in the array.
+we compare the first element with the element next to it,and we save the smaller one , after that we go to the next element and
+compare that element with the value we have (as the smallest one),if the current value is smaller than what we had, we save that new one 
+as the smaller one and we do this until we go to the last element,at the end we put our smallest value as the first element in the array we have.
+

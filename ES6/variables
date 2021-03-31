@@ -1,0 +1,19 @@
+what are the differences between let, const and var?
+var has a global scope and it can be re-declared and updated.
+let has a block scope and it can Not re-declared but it can be updated.
+const has a block scope and it can NOT re-declared or be updated.
+
+
+When would each be appropriate too use?
+Var :to use our variable globally and to have an access to our variable in the whole window and be able to re-declare and update it.
+Let :to use our variable just inside of a specific block scope and do not want to have an access to it any where else and be able to just update it.
+const:to use our variable just inside of a specific block scope and do not want to have an access to it any where else and do not want to be able to re-declare or update it.
+
+
+What is hoisting?What does the word mean, and how does hoisting work in Javascript?
+hoist itself means raise and hoisting in the javascript is a mechanism where variables and function declarations are moved to the top of their scope before code execution
+
+
+
+They are all hoisted to the top of their scope.
+But while var variables are initialized with undefined, let and const variables are not initialized.

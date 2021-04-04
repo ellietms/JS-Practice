@@ -16,8 +16,4 @@ class Node{
         this.val = value;
         this.next = null; 
     }
-    push(newValue){
-        if()
-        new Node(newValue);
-    }
 }

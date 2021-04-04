@@ -1,4 +1,4 @@
-Linked List consists of Nodes,
+Linked List consists of Nodes(collection of Nodes),
 each node has a value and pointer to the next node.
 and the last node has tail.
 (like stiars)
@@ -9,3 +9,15 @@ Do not have indexes.
 
 the benefits of linked list is the insertion and deletion.
 (for long data set)
+
+
+class Node{
+    constructor(value){
+        this.val = value;
+        this.next = null; 
+    }
+    push(newValue){
+        if()
+        new Node(newValue);
+    }
+}

@@ -1,0 +1,11 @@
+Linked List consists of Nodes,
+each node has a value and pointer to the next node.
+and the last node has tail.
+(like stiars)
+
+each node just connected to the one node.
+Do not have indexes.
+(randome access is not allowed.)
+
+the benefits of linked list is the insertion and deletion.
+(for long data set)

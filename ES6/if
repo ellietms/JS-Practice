@@ -1,0 +1,9 @@
+if(expression){
+
+}
+
+
+the of condition should always show something that is true.
+if you have a undefined or null variable it is false and will not executed,
+you should have something that is true or show if the expression is true or false with === or == .
+if the variable has a value it is true.

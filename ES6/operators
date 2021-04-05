@@ -1,0 +1,8 @@
+++x increments the value, then evaluates and stores it.
+x++ evaluates the value, then increments and stores it.
+
+
+var n = 0, m = 0;
+alert(n++); /* Shows 0, then stores n = 1 */
+alert(++m); /* Shows 1, then stores m = 1 */
+

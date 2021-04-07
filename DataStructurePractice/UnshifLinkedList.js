@@ -64,29 +64,34 @@ class Node {
     }
     unshift(value){
         let newHead = new Node(value);
-        if(this.length === 0){
-            return undefined;
-        }
         let perviousHead = this.head;
         this.head = newHead; 
-        this.head.next = perviousHead;
+        if(this.length === 0){
+           this.tail = newHead;
+           this.tail.next = null;
+           this.head.next = null;
+        }
+        else{
+          this.head.next = perviousHead;
+        }
         this.length++;
     }
   }
 
 let nodeLists = new SinglyLinkedList();
-nodeLists.push("ellie");
-nodeLists.push("How are");
-nodeLists.push("you");
-nodeLists.push("this");
-nodeLists.push("evening");
-console.log("NodeList",nodeLists);
+// nodeLists.push("ellie");
+// nodeLists.push("How are");
+// nodeLists.push("you");
+// nodeLists.push("this");
+// nodeLists.push("evening");
+console.log("Before NodeList",nodeLists);
 nodeLists.unshift("I am new");
-nodeLists.unshift("hellooAlgorithm");
-nodeLists.unshift("Future");
-nodeLists.shift();
-nodeLists.shift();
-nodeLists.shift();
-nodeLists.pop();
+console.log("NodeList",nodeLists);
+// nodeLists.unshift("hellooAlgorithm");
+// nodeLists.unshift("Future");
+// nodeLists.shift();
+// nodeLists.shift();
+// nodeLists.shift();
+// nodeLists.pop();
 nodeLists.push("Mongol");
 console.log("NewNode",nodeLists);

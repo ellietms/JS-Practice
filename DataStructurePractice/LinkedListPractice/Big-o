@@ -1,0 +1,7 @@
+LinkedList : 
+
+insertion o(1)
+removal o(1) || o(N)
+searching o(N)
+Access o(N)
+

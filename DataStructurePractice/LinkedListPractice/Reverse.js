@@ -98,6 +98,28 @@ class SinglyLinkedList {
         }
         return "Not exist"
     }
+    remove(index){
+        if(index < 0 || index > this.length){
+            return false;
+        }
+        else if(index === 0){  
+          this.shift();
+        }
+        else if(index === this.length - 1){
+            this.pop();
+        }
+        else{
+            let value = this.get(index - 1);
+            let removed = value.next;
+            let next = value.next.next;
+            value.next = next;
+            this.length--;
+            return removed;
+        }
+        this.length--;
+        return true;
+    }
   }
 
   let nodeLists = new SinglyLinkedList();
+  

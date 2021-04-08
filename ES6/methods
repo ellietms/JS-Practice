@@ -1,0 +1,9 @@
+
+**shift : 
+The shift() method removes the first element from an array 
+and returns THAT REMOVED ELEMENT.
+
+
+**unshift: 
+The unshift() method adds one or more elements to the beginning of an array
+and returns the NEW LENGTH of the array.

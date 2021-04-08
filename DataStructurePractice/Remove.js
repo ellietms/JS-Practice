@@ -82,7 +82,7 @@ class SinglyLinkedList {
         let count = 0;
         let currentNode = this.head;
         if(this.length === 0 || number > this.length || number < 0){
-            return undefined;
+            return "NOT EXIST";
         }
         while(count !== number){
             count++;
@@ -98,6 +98,37 @@ class SinglyLinkedList {
         }
         return "Not exist"
     }
+    remove(index){
+        if(index < 0 || index > this.length){
+            return false;
+        }
+        else if(index === 0){  
+          this.shift();
+        }
+        else if(index === this.length - 1){
+            this.pop();
+        }
+        else{
+            let value = this.get(index - 1);
+            let removed = value.next;
+            let next = value.next.next;
+            value.next = next;
+            this.length--;
+            return removed;
+        }
+        this.length--;
+        return true;
+    }
   }
 
   let nodeLists = new SinglyLinkedList();
+  nodeLists.push("Ellie");
+  nodeLists.push("how");
+  nodeLists.push("are");
+  nodeLists.push("you");
+  nodeLists.push("doing");
+  console.log("NODELIST Before",nodeLists);
+  let removed = nodeLists.remove(4);
+  console.log("removed one",removed);
+  console.log("get the new change",nodeLists.get(4));
+  console.log("NODELIST After",nodeLists);

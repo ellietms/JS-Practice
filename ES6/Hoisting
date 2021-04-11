@@ -1,0 +1,19 @@
+**for this function : 
+
+sayBye("Ellie");
+
+function sayBye(args){
+    // some codes 
+}
+
+hoisting will work(it will show you the execution of the sayBye("Ellie"));
+
+**for this function:
+
+dontSayBye("Ellie");
+const dontSayBye = function(args){
+    //some codes
+}
+
+
+we will get error, it does not work!

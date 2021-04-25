@@ -1,5 +1,45 @@
 Module_2
 
+DDL : (data definition language) 
+It is a subset of SQL statements that change the structure of the database schema.
+
+SELECT - extracts data from a database
+UPDATE - updates data in a database
+DELETE - deletes data from a database
+INSERT INTO - inserts new data into a database
+CREATE DATABASE - creates a new database
+ALTER DATABASE - modifies a database
+CREATE TABLE - creates a new table
+ALTER TABLE - modifies a table
+DROP TABLE - deletes a table
+CREATE INDEX - creates an index (search key)
+DROP INDEX - deletes an index
+
+
+
+UPDATE : 
+UPDATE table_name
+SET column1 = value1, column2 = value2, ... (set new value for current column)
+WHERE condition; ()
+
+DELETE: 
+DELETE FROM table_name WHERE condition;
+
+ALTER TABLE:
+The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.
+        ALTER TABLE - ADD Column : 
+            ALTER TABLE table_name
+            ADD column_name datatype;
+
+        ALTER TABLE - DROP COLUMN :
+            ALTER TABLE table_name
+            DROP COLUMN column_name;
+
+        ALTER TABLE - ALTER/MODIFY COLUMN:
+            ALTER TABLE table_name
+            ALTER COLUMN column_name datatype;
+
+
 DISTINCT : 
 It is the keyword, which means that in our query we are asking for a UNIQUE set of results
 (we want non-repeating values)
@@ -38,17 +78,32 @@ SQL CONSTRAINT TYPES :
     The table with the foreign key is called the child table,
     and the table with the primary key is called the referenced or parent table.
 
-IMPORTANT : 
-The FOREIGN KEY constraint prevents invalid data from being inserted into the foreign key column,
-because it has to be one of the values contained in the parent table.
+        IMPORTANT : 
+        1-The FOREIGN KEY constraint prevents invalid data from being inserted into the foreign key column,
+        because it has to be one of the values contained in the parent table.
+
+        2-A table may have more than one foreign key, 
+        and each foreign key in the child table may refer to a different parent table.
+
+        3-Foreign key reinforces relationships between t
+        • One-to-one
+        • One-to-many
+        • Many-to-many
+
 
     CHECK : 
     If you define a CHECK constraint on a column :
      it will allow only certain values for this column.
      it can limit the values in certain columns based on values in other columns in the row.
 
+
     DEFAULT :
     The DEFAULT constraint is used to set a default value for a column.
     The default value will be added to all new records, if no other value is specified.
+
+
+
+
+
 
   

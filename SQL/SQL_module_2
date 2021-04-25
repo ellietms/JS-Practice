@@ -1,0 +1,54 @@
+Module_2
+
+DISTINCT : 
+It is the keyword, which means that in our query we are asking for a UNIQUE set of results
+(we want non-repeating values)
+
+WHERE :
+WHERE clause describes the conditions to match for ROWS
+comes after the FROM
+contains Boolean expressions
+Only ROWS that match a condition are selected
+
+DATABASE NORMALISATION:
+Organise a database into tables in such way that a table is created about one specific topic only.
+1-To Eliminate the redundant or useless data
+2-To Reduce the complexity of the data
+3-To Ensure the relationship between tables as well as data in the tables
+
+SQL CONSTRAINT TYPES :
+Constraints are the rules that we can apply on the type of data in a table.
+we can specify the limit on the type of data that can be stored in a particular column in a table.
+
+SQL CONSTRAINT TYPES :
+    UNIQUE :
+    The UNIQUE constraint ensures that all values in a column are different
+
+    PRIMARY KEY :
+    ONLY ONE PRIMARY KEY IN A TABLE
+    Must be NOT NULL(Inserting a NULL would raise an error!)
+    Primary keys must contain UNIQUE values, and cannot contain NULL values.
+    A table can have only ONE primary key; and in the table, 
+    this primary key can consist of single or multiple columns (fields).
+    Can be defined in either a CREATE TABLE statement or an ALTER TABLE statement
+
+    FOREIGN KEY :
+    A FOREIGN KEY is a field (or collection of fields) in one table, 
+    that refers to the PRIMARY KEY in another table.
+    The table with the foreign key is called the child table,
+    and the table with the primary key is called the referenced or parent table.
+
+IMPORTANT : 
+The FOREIGN KEY constraint prevents invalid data from being inserted into the foreign key column,
+because it has to be one of the values contained in the parent table.
+
+    CHECK : 
+    If you define a CHECK constraint on a column :
+     it will allow only certain values for this column.
+     it can limit the values in certain columns based on values in other columns in the row.
+
+    DEFAULT :
+    The DEFAULT constraint is used to set a default value for a column.
+    The default value will be added to all new records, if no other value is specified.
+
+  

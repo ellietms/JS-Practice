@@ -1,0 +1,35 @@
+-- CONCAT() - Return a concatenated string
+SELECT CONCAT('Code ', 'First ', 'Girls') AS 'Concatenated Result';
+SELECT CONCAT('Emma',' ','Martin') AS 'Full Name';
+SELECT CONCAT('Data', NULL, 'SQL') AS 'Course Name';
+
+-- LCASE() - lower case
+SELECT LCASE('CodeFirstGirls'), LOWER('CODEFIRSTGIRLS');
+
+-- UCASE() - upper case
+SELECT UCASE('CodeFirstGirls'), UPPER('codefirstgirls');
+
+-- LEFT() - Returns the leftmost number of characters
+SELECT LEFT('CodeFirstGirls', 6);
+
+-- RIGHT() - Return the rightmost number of characters
+SELECT RIGHT('CodeFirstGirls', 6);
+
+-- RTRIM() - Removes trailing spaces
+SELECT RTRIM('      CFG    ');
+
+-- LTRIM() - Removes leading spaces
+SELECT LTRIM('      CFG    ');
+
+-- TRIM() - Removes leading and trailing spaces
+SELECT TRIM('      CFG    ');
+
+-- STRCMP() returns 0 if the strings are the same
+-- -1 if the first argument is smaller than the second 
+-- 1 if the first argument is larger than the second
+SELECT STRCMP('CFG', 'CFGCourse');
+SELECT STRCMP('MyCodeFirstGirls', 'CFG');
+SELECT STRCMP('CFG','CFG');
+
+-- REVERSE() - Reverses the characters in a string
+SELECT REVERSE('CodeFirstGirls');

@@ -65,4 +65,11 @@ As Keyword :
 
 
 SET FUNCTIONS: 
-    
+
+COUNT(), AVG(),MIN(), MAX(), and SUM().
+
+when we use set functions we always should have GROUP BY and 
+if we want to mention a condition instead of where we should use HAVING.
+
+(in the question when we have by (something...) it means group it by (something...) )
+

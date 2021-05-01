@@ -1,3 +1,17 @@
+-- Numeric functions
+-- Random
+SELECT RAND() AS RandomValue;
+-- Floor() 
+SELECT FLOOR(12.34), FLOOR(-12.34);
+-- PI()
+SELECT PI();
+-- POW()
+SELECT POW(3,2);
+-- SQRT()
+SELECT SQRT(4);
+SELECT SQRT(16);
+SELECT SQRT(256);
+
 -- CONCAT() - Return a concatenated string
 SELECT CONCAT('Code ', 'First ', 'Girls') AS 'Concatenated Result';
 SELECT CONCAT('Emma',' ','Martin') AS 'Full Name';

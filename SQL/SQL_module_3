@@ -53,14 +53,11 @@ ORDER BY keyword:
     ORDER BY column1, column2, ... ASC|DESC;
 
 
-
-
 As Keyword :
     The AS command is used to rename a column or table with an alias.
 
     SELECT CustomerID AS ID
     FROM Customers;
-
 
 
 

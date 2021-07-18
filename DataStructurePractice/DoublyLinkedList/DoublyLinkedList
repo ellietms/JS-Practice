@@ -1,0 +1,6 @@
+Doubly Linked List :
+
+it has 2 pointers (to next and to pervious node)
+it takes more memory compare to single Linked List
+more memory == more flexibility
+

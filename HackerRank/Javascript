@@ -1,0 +1,13 @@
+** Splice explanations
+
+all about removing, if removing makes sense , add and replace is making sense as well
+
+arr.splice(index (i), (how many to remove)(*), items name to add or replace from which
+position (i) and how many (*) in the current array)
+
+
+arr.splice(2,0, "ellie")  // from index 2, remove nothing and add "ellie" at position 2
+arr.splice(0, 2, "ellie", "drinks") // from index 0, remove 2 element and after that add "ellie" and "drinks" in order
+arr.splice(2,3) // from index 2 (exact 2), delete 3 items forward
+arr.splice(3, 1, "food") // at index 3, remove 1 item and add "food"
+arr.splice(4, 2, "buy", "car") // from index 4 , remove 2 items (from exact index 4) and add "buy" and "car" in order

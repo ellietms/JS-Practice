@@ -1,0 +1,20 @@
+// Ascending  arr.sort(a,b => a - b)
+// descending arr.sort(a,b => b - a)
+
+
+
+// Destructer 
+// [a,b] = [1,2] => a = 1, b = 2
+//  {skin, weight} = ellie  => skin = ellie.skin , weight = ellie.weigth
+
+
+function convertToWave(arr, n){
+    let sortedDesArr = arr.sort((a,b) => b - a) 
+    for (let i=0; i< n ; i+=2){
+         sortedDesArr[i] = sortedDesArr[i + 1]
+         sortedDesArr[i + 1]  =  sortedDesArr[i]
+    }
+    return sortedDesArr
+}
+
+console.log(convertToWave([1,2,3,4,5], 5))

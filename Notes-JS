@@ -102,7 +102,7 @@ Promises are used for handling asynchronous operations also called blocking code
 
 
 
-
+Async : https://blog.bitsrc.io/understanding-asynchronous-javascript-the-event-loop-74cd408419ff
 Splice : https://flaviocopes.com/how-to-add-item-to-array-javascript/#:~:text=You%20want%20to%20explicitly%20add,()%20method%20of%20an%20array.
 Remove: https://love2dev.com/blog/javascript-remove-from-array/#create-remove-method
 

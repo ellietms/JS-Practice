@@ -53,3 +53,56 @@ Array.indexOF(index, fromWhichIndex) => we can choose from where
 
 
 
+Splice - remove , add , replace items with index
+
+Scores.splice(id,amount of items).  ===>  it will removes the item which has the index = id , from this id it will remove items(amount of item)
+
+myFish.splice(3, 1) => remove item with index 3
+
+Array.splice(indexOfwhereWeWantToMakeChanges,0,elementWeWantToAdd)
+
+Array.splice(indexOfwhereWeWantToMakeChanges,1,elementWeWantToReplace)
+
+we use splice for How to add item to an array at a specific index in JavaScript : colors.splice(1, 0, 'blue')
+
+months.splice(4, 1, 'May’) ( it will replace one item in index 4 with ‘May’ value , when we write 1 in the second place of parentheses  it means replace it , when we want to add it to array we write 0 )
+
+Examples : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+
+
+
+Push method: 
+
+The push() method adds one or more elements to the end of an array and returns the new length of the array.
+
+
+
+Pop method: 
+
+The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
+
+
+
+
+
+
+
+
+Repeat Function : 
+
+The repeat() method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+
+
+
+Promises: 
+
+Promises are used for handling asynchronous operations also called blocking code, examples of which are DB, I/O or API calls, which are carried out by the executor function. Once that completes it either calls resolve on success or reject function on error.
+
+
+
+
+
+
+
+
+

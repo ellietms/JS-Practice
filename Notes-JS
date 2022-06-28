@@ -1,0 +1,55 @@
+Results will not change the main array: (do something on the main array):
+
+Slice
+Sort
+
+
+
+
+Results will change the main array: (change the main array): 
+
+Unshift
+Pop
+Splice
+Map
+Push
+Filter   
+
+
+
+
+Array.sort ( a, b => a - b) ( means if a < b , the order is ascending) :
+
+If a > b => order is descending 
+
+
+def trappingWater(arr,n):
+    wall1 = arr[0]
+    wall2 = arr[n - 1]
+    minWall = min(wall1, wall2)
+    sum = 0
+    for i in range(n):
+        if(arr[i] < minWall ):
+            sum += minWall - arr[i]
+        elif (arr[i] == 0):
+            sum += minWall
+    return sum
+    
+    
+    
+    
+Reduce -  give us result :
+
+Array.reduce(perviousResults, currentElement, CurrentIndex, actualArray => CallBack() , initialNum)
+
+
+Array.Filter((item, currentItemIndex, currentArray) => …)
+
+
+Array.indexOF(index) => always show the index of first element in the array == if not existed return -1
+
+
+Array.indexOF(index, fromWhichIndex) => we can choose from where
+
+
+

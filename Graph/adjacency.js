@@ -1,22 +1,18 @@
-
 class Graph {
-    constructor( ){
-        this.myAdjacency = {};
-    }
+  constructor() {
+    this.myAdjacency = {};
+  }
 
-    addVertex(nodeName){
-       if(!this.myAdjacency[nodeName]) this.myAdjacency[nodeName] = []
-    }
+  addVertex(nodeName) {
+    if (!this.myAdjacency[nodeName]) this.myAdjacency[nodeName] = [];
+  }
 }
 
+let firstGraph = new Graph();
 
-let firstGraph = new Graph()
+firstGraph.addVertex("Tokyo");
+firstGraph.addVertex("Thailand");
 
-firstGraph.addVertex("Tokyo")
-firstGraph.addVertex("Thailand")
+firstGraph;
 
-
-firstGraph
-
-
-console.log(firstGraph)
+console.log(firstGraph);

@@ -16,6 +16,10 @@ class Graph {
       this.myAdjacency[vertext2].push(vertext1);
     }
   }
+
+  getList(){
+    return this.myAdjacency
+  }
 }
 
 let firstGraph = new Graph();
@@ -29,3 +33,24 @@ firstGraph.addEdge("Tokyo", "Thailand")
 
 console.log(firstGraph);
 
+let secondGraph = new Graph()
+
+secondGraph.addVertex("shiraz")
+secondGraph.addVertex("Esfahan")
+secondGraph.addVertex("Tehran")
+
+console.log(secondGraph)
+
+secondGraph.addEdge("shiraz", "Tehran")
+
+console.log(secondGraph)
+
+
+secondGraph.addEdge("Tehran", "Esfahan")
+
+console.log(secondGraph)
+
+
+secondGraph.addEdge("shiraz", "Esfahan")
+
+console.log(secondGraph)
